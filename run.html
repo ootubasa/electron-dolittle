@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <title>run | electron-dolittle</title>
+    <!-- meta -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';" /> -->
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="run/run.css" />
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap-honoka/dist/css/bootstrap.min.css" />
+    <!-- util -->
+    <script>
+        dialog = require('electron').remote.dialog;
+        $ = require('jquery');
+        fs = require('fs');
+        Bootstrap = require('bootstrap-honoka');
+        window.runtimePath = __dirname + "/";
+    </script>
+
+</head>
+
+<body></body>
+<!-- runtime -->
+<script charset="utf-8" src="run/runtime/mt.js"></script>
+<script charset="utf-8" src="run/runtime/lib.js"></script>
+<script charset="utf-8" src="run/runtime/polyk.js"></script>
+<script charset="utf-8" src="run/runtime/Dict.js"></script>
+<script charset="utf-8" src="run/runtime/Vec2.js"></script>
+<script charset="utf-8" src="run/runtime/Actor.js"></script>
+<script charset="utf-8" src="run/runtime/Group.js"></script>
+<script charset="utf-8" src="run/runtime/UI.js"></script>
+<script charset="utf-8" src="run/runtime/Color.js"></script>
+<script charset="utf-8" src="run/runtime/Timer.js"></script>
+<script charset="utf-8" src="run/runtime/Util.js"></script>
+<script charset="utf-8" src="run/runtime/Turtle.js"></script>
+<script charset="utf-8" src="run/runtime/Figure.js"></script>
+<script charset="utf-8" src="run/runtime/DOM.js"></script>
+<script charset="utf-8" src="run/runtime/Japanese2.js"></script>
+
+<script charset="utf-8" src="run/run.js"></script>
+
+</html>

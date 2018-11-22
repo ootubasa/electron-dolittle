@@ -1,0 +1,1 @@
+(function(){return this['システム']['使う']("Noble");}).checkerror().apply(root,[]);

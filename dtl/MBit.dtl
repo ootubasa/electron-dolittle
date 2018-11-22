@@ -1,0 +1,691 @@
+system!"Serialport"use.
+
+MBit=Serialport!create.
+
+MBit:VendorId="0D28".
+MBit:ProductId="0204".
+
+MBit:pushA="".
+MBit:pushB="".
+MBit:pushAB="".
+　　
+MBit:touchP0="".
+MBit:touchP1="".
+MBit:touchP2="".
+　　
+MBit:screenUp="".
+MBit:screenDown="".
+MBit:logoUp="".
+MBit:logoDown="".
+　　
+MBit:tiltL="".
+MBit:tiltR="".
+MBit:freeFall="".
+MBit:shake="".
+
+MBit:RMsg="".
+MBit:Store=Array!0 0 0 0 0 create.
+MBit:action=[|_Msg|_Msg=""+_Msg.
+    _self=self.
+　　[_Msg=="A"]!then[_self!pushA._Msg=""]execute.//Aボタン
+　　[_Msg=="B"]!then[_self!pushB._Msg=""]execute.//Bボタン
+　　[_Msg=="C"]!then[_self!pushAB._Msg=""]execute.//ABボタン
+　　
+　　[_Msg=="X"]!then[_self!touchP0._Msg=""]execute.//P0
+　　[_Msg=="Y"]!then[_self!touchP1._Msg=""]execute.//P1
+　　[_Msg=="Z"]!then[_self!touchP2._Msg=""]execute.//P2
+　　
+　　[_Msg=="u"]!then[_self!screenUp._Msg=""]execute.//画面が上
+　　[_Msg=="d"]!then[_self!screenDown._Msg=""]execute.//画面が下
+　　[_Msg=="U"]!then[_self!logoUp._Msg=""]execute.//ロゴが上
+　　[_Msg=="D"]!then[_self!logoDown._Msg=""]execute.//ロゴが下
+　　
+　　[_Msg=="L"]!then[_self!tiltL._Msg=""]execute.//左に傾ける
+　　[_Msg=="R"]!then[_self!tiltR._Msg=""]execute.//右に傾ける
+　　[_Msg=="F"]!then[_self!freeFall._Msg=""]execute.//落とした
+　　[_Msg=="S"]!then[_self!shake._Msg=""]execute.//シェイク
+　　[_Msg!=""]!then[RMsg=RMsg+_Msg._Msg=""]execute.
+　　[RMsg!":"contain?]!then[
+　　　　[|n|Store!(n)((RMsg!1 ((RMsg!","indexof)-1)substr)*1)set.
+　　　　RMsg=RMsg!((RMsg!","indexof)+1)100 substr]!4 repeat.
+　　　　Store!5((RMsg!1 ((RMsg!":"indexof)-1)substr)*1)set.
+　　RMsg=""]execute.
+].
+
+MBit:get=[|s ;t|
+　　[s==undef]!then[t=Store]execute.
+　　
+　　[s=="1"]!then[t=Store!1 get]execute.
+　　[s=="2"]!then[t=Store!2 get]execute.
+　　[s=="3"]!then[t=Store!3 get]execute.
+　　[s=="4"]!then[t=Store!4 get]execute.
+　　[s=="5"]!then[t=Store!5 get]execute.
+　　
+　　[s=="X"]!then[t=Store!1 get]execute.
+　　[s=="Y"]!then[t=Store!2 get]execute.
+　　[s=="Z"]!then[t=Store!3 get]execute.
+　　[s=="L"]!then[t=Store!4 get]execute.
+　　[s=="T"]!then[t=Store!5 get]execute.
+　　
+　　[s=="x"]!then[t=Store!1 get]execute.
+　　[s=="y"]!then[t=Store!2 get]execute.
+　　[s=="z"]!then[t=Store!3 get]execute.
+　　[s=="l"]!then[t=Store!4 get]execute.
+　　[s=="t"]!then[t=Store!5 get]execute.
+　　
+　　[s=="１"]!then[t=Store!1 get]execute.
+　　[s=="２"]!then[t=Store!2 get]execute.
+　　[s=="３"]!then[t=Store!3 get]execute.
+　　[s=="４"]!then[t=Store!4 get]execute.
+　　[s=="５"]!then[t=Store!5 get]execute.
+　　
+　　[s=="Ｘ"]!then[t=Store!1 get]execute.
+　　[s=="Ｙ"]!then[t=Store!2 get]execute.
+　　[s=="Ｚ"]!then[t=Store!3 get]execute.
+　　[s=="Ｌ"]!then[t=Store!4 get]execute.
+　　[s=="Ｔ"]!then[t=Store!5 get]execute.
+　　
+　　[s=="ｘ"]!then[t=Store!1 get]execute.
+　　[s=="ｙ"]!then[t=Store!2 get]execute.
+　　[s=="ｚ"]!then[t=Store!3 get]execute.
+　　[s=="ｌ"]!then[t=Store!4 get]execute.
+　　[s=="ｔ"]!then[t=Store!5 get]execute.
+　　
+　　[s=="明るさ"]!then[t=Store!4 get]execute.
+　　[s=="温度"]!then[t=Store!5 get]execute.
+　　
+　　[s=="X軸"]!then[t=Store!1 get]execute.
+　　[s=="Y軸"]!then[t=Store!2 get]execute.
+　　[s=="Z軸"]!then[t=Store!3 get]execute.
+　　
+　　[s=="Ｘ軸"]!then[t=Store!1 get]execute.
+　　[s=="Ｙ軸"]!then[t=Store!2 get]execute.
+　　[s=="Ｚ軸"]!then[t=Store!3 get]execute.
+　　
+　　[s=="加速度Ｘ"]!then[t=Store!1 get]execute.
+　　[s=="加速度Ｙ"]!then[t=Store!2 get]execute.
+　　[s=="加速度Ｚ"]!then[t=Store!3 get]execute.
+　　
+　　[s=="加速度X"]!then[t=Store!1 get]execute.
+　　[s=="加速度Y"]!then[t=Store!2 get]execute.
+　　[s=="加速度Z"]!then[t=Store!3 get]execute.
+t].
+
+
+MBit:SetAction＝「|_Obj _Block|
+　　[_Obj=="pushA"]!then[pushA=_Block]execute.
+　　[_Obj=="pushB"]!then[pushB=_Block]execute.
+　　[_Obj=="pushAB"]!then[pushAB=_Block]execute.
+　　[_Obj=="touchP0"]!then[touchP0=_Block]execute.
+　　[_Obj=="touchP1"]!then[touchP1=_Block]execute.
+　　[_Obj=="touchP2"]!then[touchP2=_Block]execute.
+　　[_Obj=="screenUp"]!then[screenUp=_Block]execute.
+　　[_Obj=="screenDown"]!then[screenDown=_Block]execute.
+　　[_Obj=="logoUp"]!then[logoUp=_Block]execute.
+　　[_Obj=="logoDown"]!then[logoDown=_Block]execute.
+　　[_Obj=="tiltL"]!then[tiltL=_Block]execute.
+　　[_Obj=="tiltR"]!then[tiltR=_Block]execute.
+　　[_Obj=="freeFall"]!then[freeFall=_Block]execute.
+　　[_Obj=="shake"]!then[shake=_Block]execute.
+　　
+　　[_Obj=="Aボタン"]!then[pushA=_Block]execute.
+　　[_Obj=="Bボタン"]!then[pushB=_Block]execute.
+　　[_Obj=="ABボタン"]!then[pushAB=_Block]execute.
+　　[_Obj=="P0"]!then[touchP0=_Block]execute.
+　　[_Obj=="P1"]!then[touchP1=_Block]execute.
+　　[_Obj=="P2"]!then[touchP2=_Block]execute.
+　　[_Obj=="画面が上"]!then[screenUp=_Block]execute.
+　　[_Obj=="画面が下"]!then[screenDown=_Block]execute.
+　　[_Obj=="ロゴが上"]!then[logoUp=_Block]execute.
+　　[_Obj=="ロゴが下"]!then[logoDown=_Block]execute.
+　　[_Obj=="左に傾ける"]!then[tiltL=_Block]execute.
+　　[_Obj=="右に傾ける"]!then[tiltR=_Block]execute.
+　　[_Obj=="落とした"]!then[freeFall=_Block]execute.
+　　[_Obj=="シェイク"]!then[shake=_Block]execute.
+　　
+　　[_Obj=="Ａボタン"]!then[pushA=_Block]execute.
+　　[_Obj=="Ｂボタン"]!then[pushB=_Block]execute.
+　　[_Obj=="ＡＢボタン"]!then[pushAB=_Block]execute.
+　　[_Obj=="Ｐ０"]!then[touchP0=_Block]execute.
+　　[_Obj=="Ｐ１"]!then[touchP1=_Block]execute.
+　　[_Obj=="Ｐ２"]!then[touchP2=_Block]execute.
+　　
+　　
+　　[_Obj=="A"]!then[pushA=_Block]execute.
+　　[_Obj=="B"]!then[pushB=_Block]execute.
+　　[_Obj=="AB"]!then[pushAB=_Block]execute.
+　　[_Obj=="0"]!then[pushA=_Block]execute.
+　　[_Obj=="1"]!then[pushB=_Block]execute.
+　　[_Obj=="2"]!then[pushAB=_Block]execute.
+　　[_Obj=="表"]!then[screenUp=_Block]execute.
+　　[_Obj=="裏"]!then[screenDown=_Block]execute.
+　　[_Obj=="上"]!then[logoUp=_Block]execute.
+　　[_Obj=="下"]!then[logoDown=_Block]execute.
+　　[_Obj=="左"]!then[tiltL=_Block]execute.
+　　[_Obj=="右"]!then[tiltR=_Block]execute.
+」．
+
+MBit:SSMsg="".
+MBit:STMsg="".
+MBit:SFlag=true.
+
+MBit:SMsg="".
+MBit:Sub="".
+MBit:subset=[|_S _num|[Sub==_S]!then[SMsg=SMsg+(_num!codechar)]execute].
+MBit:sendstr=[|_Msg|_Msg=""+_Msg.SMsg=31!codechar.[|n|
+    Sub=_Msg!(n)1 substr.
+　　//数字
+　　//48 Label!("0"!charcode)create.
+　　[|n|self!((47+n)!codechar)(47+n)subset]!10 repeat.
+　　//65296 Label!("０"!charcode)create.
+　　[|n|self!((65295+n)!codechar)(47+n)subset]!10 repeat.
+　　
+　　//英字
+　　//65 Label!("A"!charcode)create.
+　　[|n|self!((64+n)!codechar)(64+n)subset]!26 repeat.
+　　//97 Label!("a"!charcode)create.
+　　[|n|self!((96+n)!codechar)(64+n)subset]!26 repeat.
+　　//65313 Label!("Ａ"!charcode)create.
+　　[|n|self!((65312+n)!codechar)(64+n)subset]!26 repeat.
+　　//65345 Label!("ａ"!charcode)create.
+　　[|n|self!((65344+n)!codechar)(64+n)subset]!26 repeat.
+　　
+　　//記号
+　　//32 Label!(" "!charcode)create nextLine.
+　　//47 Label!("/"!charcode)create nextLine.
+　　[|n|self!((31+n)!codechar)(31+n)subset]!16 repeat.
+　　//58 Label!(":"!charcode)create nextLine.
+　　//64 Label!("@"!charcode)create nextLine.
+　　[|n|self!((57+n)!codechar)(57+n)subset]!7 repeat.
+　　//91 Label!("["!charcode)create nextLine.
+　　//96 Label!("`"!charcode)create nextLine.
+　　[|n|self!((91+n)!codechar)(91+n)subset]!5 repeat.
+　　//97 Label!("a"!charcode)create nextLine.
+　　//。「」、・
+　　//SMsg="abcde".
+　　self!"。" 97 subset.
+　　self!"「" 98 subset.
+　　self!"」" 99 subset.
+　　self!"、" 100 subset.
+　　self!"・" 101 subset.
+　　
+　　//日本語
+　　//をぁぃぅぇぉゃゅょっー
+　　//SMsg="fghijklmnop".
+　　self!"を" 102 subset.self!"ヲ" 102 subset.self!"ｦ" 102 subset.
+　　self!"ぁ" 103 subset.self!"ァ" 103 subset.self!"ｧ" 103 subset.
+　　self!"ぃ" 104 subset.self!"ィ" 104 subset.self!"ｨ" 104 subset.
+　　self!"ぅ" 105 subset.self!"ゥ" 105 subset.self!"ｩ" 105 subset.
+　　self!"ぇ" 106 subset.self!"ェ" 106 subset.self!"ｪ" 106 subset.
+　　self!"ぉ" 107 subset.self!"ォ" 107 subset.self!"ｫ" 107 subset.
+　　self!"ゃ" 108 subset.self!"ャ" 108 subset.self!"ｬ" 108 subset.
+　　self!"ゅ" 109 subset.self!"ュ" 109 subset.self!"ｭ" 109 subset.
+　　self!"ょ" 110 subset.self!"ョ" 110 subset.self!"ｮ" 110 subset.
+　　self!"っ" 111 subset.self!"ッ" 111 subset.self!"ｯ" 111 subset.
+　　self!"ー" 112 subset.self!"ｰ" 112 subset.
+　　//ア
+　　//SMsg="q".
+　　//113 Label!("q"!charcode)create.
+　　self!"あ" 113 subset.self!"ア" 113 subset.self!"ｱ" 113 subset.
+　　self!"い" 114 subset.self!"イ" 114 subset.self!"ｲ" 114 subset.
+　　self!"う" 115 subset.self!"ウ" 115 subset.self!"ｳ" 115 subset.
+　　self!"え" 116 subset.self!"エ" 116 subset.self!"ｴ" 116 subset.
+　　self!"お" 117 subset.self!"オ" 117 subset.self!"ｵ" 117 subset.
+　　
+　　self!"か" 118 subset.self!"カ" 118 subset.self!"ｶ" 118 subset.
+　　self!"き" 119 subset.self!"キ" 119 subset.self!"ｷ" 119 subset.
+　　self!"く" 120 subset.self!"ク" 120 subset.self!"ｸ" 120 subset.
+　　self!"け" 121 subset.self!"ケ" 121 subset.self!"ｹ" 121 subset.
+　　self!"こ" 122 subset.self!"コ" 122 subset.self!"ｺ" 122 subset.
+　　
+　　self!"さ" 123 subset.self!"サ" 123 subset.self!"ｻ" 123 subset.
+　　self!"し" 124 subset.self!"シ" 124 subset.self!"ｼ" 124 subset.
+　　self!"す" 125 subset.self!"ス" 125 subset.self!"ｽ" 125 subset.
+　　self!"せ" 126 subset.self!"セ" 126 subset.self!"ｾ" 126 subset.
+　　self!"そ" 127 subset.self!"ソ" 127 subset.self!"ｿ" 127 subset.
+　　
+　　self!"た" 128 subset.self!"タ" 128 subset.self!"ﾀ" 128 subset.
+　　self!"ち" 129 subset.self!"チ" 129 subset.self!"ﾁ" 129 subset.
+　　self!"つ" 130 subset.self!"ツ" 130 subset.self!"ﾂ" 130 subset.
+　　self!"て" 131 subset.self!"テ" 131 subset.self!"ﾃ" 131 subset.
+　　self!"と" 132 subset.self!"ト" 132 subset.self!"ﾄ" 132 subset.
+　　
+　　self!"な" 133 subset.self!"ナ" 133 subset.self!"ﾅ" 133 subset.
+　　self!"に" 134 subset.self!"ニ" 134 subset.self!"ﾆ" 134 subset.
+　　self!"ぬ" 135 subset.self!"ヌ" 135 subset.self!"ﾇ" 135 subset.
+　　self!"ね" 136 subset.self!"ネ" 136 subset.self!"ﾈ" 136 subset.
+　　self!"の" 137 subset.self!"ノ" 137 subset.self!"ﾉ" 137 subset.
+　　
+　　self!"は" 138 subset.self!"ハ" 138 subset.self!"ﾊ" 138 subset.
+　　self!"ひ" 139 subset.self!"ヒ" 139 subset.self!"ﾋ" 139 subset.
+　　self!"ふ" 140 subset.self!"フ" 140 subset.self!"ﾌ" 140 subset.
+　　self!"へ" 141 subset.self!"ヘ" 141 subset.self!"ﾍ" 141 subset.
+　　self!"ほ" 142 subset.self!"ホ" 142 subset.self!"ﾎ" 142 subset.
+　　
+　　self!"ま" 143 subset.self!"マ" 143 subset.self!"ﾏ" 143 subset.
+　　self!"み" 144 subset.self!"ミ" 144 subset.self!"ﾐ" 144 subset.
+　　self!"む" 145 subset.self!"ム" 145 subset.self!"ﾑ" 145 subset.
+　　self!"め" 146 subset.self!"メ" 146 subset.self!"ﾒ" 146 subset.
+　　self!"も" 147 subset.self!"モ" 147 subset.self!"ﾓ" 147 subset.
+　　
+　　self!"や" 148 subset.self!"ヤ" 148 subset.self!"ﾔ" 148 subset.
+　　self!"ゆ" 149 subset.self!"ユ" 149 subset.self!"ﾕ" 149 subset.
+　　self!"よ" 150 subset.self!"ヨ" 150 subset.self!"ﾖ" 150 subset.
+　　
+　　self!"ら" 151 subset.self!"ラ" 151 subset.self!"ﾗ" 151 subset.
+　　self!"り" 152 subset.self!"リ" 152 subset.self!"ﾘ" 152 subset.
+　　self!"る" 153 subset.self!"ル" 151 subset.self!"ﾙ" 153 subset.
+　　self!"れ" 154 subset.self!"レ" 152 subset.self!"ﾚ" 154 subset.
+　　self!"ろ" 155 subset.self!"ロ" 151 subset.self!"ﾛ" 155 subset.
+　　
+　　self!"わ" 156 subset.self!"ワ" 156 subset.self!"ﾜ" 156 subset.
+　　self!"ん" 157 subset.self!"ン" 157 subset.self!"ﾝ" 157 subset.
+　　
+　　self!"゛" 158 subset.self!"ﾞ" 158 subset.
+　　self!"゜" 159 subset.self!"ﾟ" 159 subset.
+　　
+　　self!"が" 118 subset.self!"ガ" 118 subset.
+　　self!"ぎ" 119 subset.self!"ギ" 119 subset.
+　　self!"ぐ" 120 subset.self!"グ" 120 subset.
+　　self!"げ" 121 subset.self!"ゲ" 121 subset.
+　　self!"ご" 122 subset.self!"ゴ" 122 subset.
+　　
+　　self!"ざ" 123 subset.self!"ザ" 123 subset.
+　　self!"じ" 124 subset.self!"ジ" 124 subset.
+　　self!"ず" 125 subset.self!"ズ" 125 subset.
+　　self!"ぜ" 126 subset.self!"ゼ" 126 subset.
+　　self!"ぞ" 127 subset.self!"ゾ" 127 subset.
+　　
+　　self!"だ" 128 subset.self!"ダ" 128 subset.
+　　self!"ぢ" 129 subset.self!"ヂ" 129 subset.
+　　self!"づ" 130 subset.self!"ヅ" 130 subset.
+　　self!"で" 131 subset.self!"デ" 131 subset.
+　　self!"ど" 132 subset.self!"ド" 132 subset.
+　　
+　　self!"ば" 138 subset.self!"バ" 138 subset.
+　　self!"び" 139 subset.self!"ビ" 139 subset.
+　　self!"ぶ" 140 subset.self!"ブ" 140 subset.
+　　self!"べ" 141 subset.self!"ベ" 141 subset.
+　　self!"ぼ" 142 subset.self!"ボ" 142 subset.
+　　
+　　self!"ぱ" 138 subset.self!"パ" 138 subset.
+　　self!"ぴ" 139 subset.self!"ピ" 139 subset.
+　　self!"ぷ" 140 subset.self!"プ" 140 subset.
+　　self!"ぺ" 141 subset.self!"ペ" 141 subset.
+　　self!"ぽ" 142 subset.self!"ポ" 142 subset.
+　　
+　　
+　　self!"が" 158 subset.self!"ガ" 158 subset.
+　　self!"ぎ" 158 subset.self!"ギ" 158 subset.
+　　self!"ぐ" 158 subset.self!"グ" 158 subset.
+　　self!"げ" 158 subset.self!"ゲ" 158 subset.
+　　self!"ご" 158 subset.self!"ゴ" 158 subset.
+　　
+　　self!"ざ" 158 subset.self!"ザ" 158 subset.
+　　self!"じ" 158 subset.self!"ジ" 158 subset.
+　　self!"ず" 158 subset.self!"ズ" 158 subset.
+　　self!"ぜ" 158 subset.self!"ゼ" 158 subset.
+　　self!"ぞ" 158 subset.self!"ゾ" 158 subset.
+　　
+　　self!"だ" 158 subset.self!"ダ" 158 subset.
+　　self!"ぢ" 158 subset.self!"ヂ" 158 subset.
+　　self!"づ" 158 subset.self!"ヅ" 158 subset.
+　　self!"で" 158 subset.self!"デ" 158 subset.
+　　self!"ど" 158 subset.self!"ド" 158 subset.
+　　
+　　self!"ば" 158 subset.self!"バ" 158 subset.
+　　self!"び" 158 subset.self!"ビ" 158 subset.
+　　self!"ぶ" 158 subset.self!"ブ" 158 subset.
+　　self!"べ" 158 subset.self!"ベ" 158 subset.
+　　self!"ぼ" 158 subset.self!"ボ" 158 subset.
+　　
+　　self!"ぱ" 159 subset.self!"パ" 159 subset.
+　　self!"ぴ" 159 subset.self!"ピ" 159 subset.
+　　self!"ぷ" 159 subset.self!"プ" 159 subset.
+　　self!"ぺ" 159 subset.self!"ペ" 159 subset.
+　　self!"ぽ" 159 subset.self!"ポ" 159 subset.
+]!(_Msg!length?)repeat.
+STMsg=SMsg.
+[SFlag]!then[SFlag=false.
+　　Timer!create 0.1 interval 1 times[]execute
+　　　　[self!(SSMsg+STMsg)write.SSMsg="".STMsg="".SFlag=true.]next_execute.
+]execute.
+SMsg=""].
+
+MBit:sendSE=[|_Msg|
+　　SMsg=30!codechar.
+　　
+　　[_Msg=="0"]!then[SMsg=SMsg+"00"]execute.
+　　[_Msg=="1"]!then[SMsg=SMsg+"01"]execute.
+　　[_Msg=="2"]!then[SMsg=SMsg+"02"]execute.
+　　[_Msg=="3"]!then[SMsg=SMsg+"03"]execute.
+　　[_Msg=="4"]!then[SMsg=SMsg+"04"]execute.
+　　[_Msg=="5"]!then[SMsg=SMsg+"05"]execute.
+　　[_Msg=="6"]!then[SMsg=SMsg+"06"]execute.
+　　[_Msg=="7"]!then[SMsg=SMsg+"07"]execute.
+　　[_Msg=="8"]!then[SMsg=SMsg+"08"]execute.
+　　[_Msg=="9"]!then[SMsg=SMsg+"09"]execute.
+　　[_Msg=="10"]!then[SMsg=SMsg+"10"]execute.
+　　[_Msg=="11"]!then[SMsg=SMsg+"11"]execute.
+　　[_Msg=="12"]!then[SMsg=SMsg+"12"]execute.
+　　[_Msg=="13"]!then[SMsg=SMsg+"13"]execute.
+　　[_Msg=="14"]!then[SMsg=SMsg+"14"]execute.
+　　[_Msg=="15"]!then[SMsg=SMsg+"15"]execute.
+　　[_Msg=="16"]!then[SMsg=SMsg+"16"]execute.
+　　[_Msg=="17"]!then[SMsg=SMsg+"17"]execute.
+　　[_Msg=="18"]!then[SMsg=SMsg+"18"]execute.
+　　[_Msg=="19"]!then[SMsg=SMsg+"19"]execute.
+　　
+　　[_Msg=="０"]!then[SMsg=SMsg+"00"]execute.
+　　[_Msg=="１"]!then[SMsg=SMsg+"01"]execute.
+　　[_Msg=="２"]!then[SMsg=SMsg+"02"]execute.
+　　[_Msg=="３"]!then[SMsg=SMsg+"03"]execute.
+　　[_Msg=="４"]!then[SMsg=SMsg+"04"]execute.
+　　[_Msg=="５"]!then[SMsg=SMsg+"05"]execute.
+　　[_Msg=="６"]!then[SMsg=SMsg+"06"]execute.
+　　[_Msg=="７"]!then[SMsg=SMsg+"07"]execute.
+　　[_Msg=="８"]!then[SMsg=SMsg+"08"]execute.
+　　[_Msg=="９"]!then[SMsg=SMsg+"09"]execute.
+　　[_Msg=="１０"]!then[SMsg=SMsg+"10"]execute.
+　　[_Msg=="１１"]!then[SMsg=SMsg+"11"]execute.
+　　[_Msg=="１２"]!then[SMsg=SMsg+"12"]execute.
+　　[_Msg=="１３"]!then[SMsg=SMsg+"13"]execute.
+　　[_Msg=="１４"]!then[SMsg=SMsg+"14"]execute.
+　　[_Msg=="１５"]!then[SMsg=SMsg+"15"]execute.
+　　[_Msg=="１６"]!then[SMsg=SMsg+"16"]execute.
+　　[_Msg=="１７"]!then[SMsg=SMsg+"17"]execute.
+　　[_Msg=="１８"]!then[SMsg=SMsg+"18"]execute.
+　　[_Msg=="１９"]!then[SMsg=SMsg+"19"]execute.
+　　
+　　[_Msg=="ダダダム"]!then[SMsg=SMsg+"00"]execute.
+　　[_Msg=="ジ・エンターテイナー"]!then[SMsg=SMsg+"01"]execute.
+　　[_Msg=="プレリュード"]!then[SMsg=SMsg+"02"]execute.
+　　[_Msg=="歓喜の歌"]!then[SMsg=SMsg+"03"]execute.
+　　[_Msg=="ニャン・キャット"]!then[SMsg=SMsg+"04"]execute.
+　　[_Msg=="着信メロディ"]!then[SMsg=SMsg+"05"]execute.
+　　[_Msg=="ファンク"]!then[SMsg=SMsg+"06"]execute.
+　　[_Msg=="ブルース"]!then[SMsg=SMsg+"07"]execute.
+　　[_Msg=="ハッピーバースデー"]!then[SMsg=SMsg+"08"]execute.
+　　[_Msg=="ウェディング・マーチ"]!then[SMsg=SMsg+"09"]execute.
+　　[_Msg=="おそうしき"]!then[SMsg=SMsg+"10"]execute.
+　　[_Msg=="ちゃんちゃん♪"]!then[SMsg=SMsg+"11"]execute.
+　　[_Msg=="タッタラッタッター"]!then[SMsg=SMsg+"12"]execute.
+　　[_Msg=="チェイス"]!then[SMsg=SMsg+"13"]execute.
+　　[_Msg=="ピコーン！"]!then[SMsg=SMsg+"14"]execute.
+　　[_Msg=="ワワワワー"]!then[SMsg=SMsg+"15"]execute.
+　　[_Msg=="ジャンプアップ"]!then[SMsg=SMsg+"16"]execute.
+　　[_Msg=="ジャンプダウン"]!then[SMsg=SMsg+"17"]execute.
+　　[_Msg=="パワーアップ"]!then[SMsg=SMsg+"18"]execute.
+　　[_Msg=="パワーダウン"]!then[SMsg=SMsg+"19"]execute.
+　　
+　　[_Msg=="だだだむ"]!then[SMsg=SMsg+"00"]execute.
+　　[_Msg=="じ・えんたーていなー"]!then[SMsg=SMsg+"01"]execute.
+　　[_Msg=="ぷれりゅーど"]!then[SMsg=SMsg+"02"]execute.
+　　[_Msg=="かんきのうた"]!then[SMsg=SMsg+"03"]execute.
+　　[_Msg=="にゃん・きゃっと"]!then[SMsg=SMsg+"04"]execute.
+　　[_Msg=="ちゃくしんめろでぃ"]!then[SMsg=SMsg+"05"]execute.
+　　[_Msg=="ふぁんく"]!then[SMsg=SMsg+"06"]execute.
+　　[_Msg=="ぶるーす"]!then[SMsg=SMsg+"07"]execute.
+　　[_Msg=="はっぴーばーすでー"]!then[SMsg=SMsg+"08"]execute.
+　　[_Msg=="うぇでぃんぐ・まーち"]!then[SMsg=SMsg+"09"]execute.
+　　[_Msg=="お葬式"]!then[SMsg=SMsg+"10"]execute.
+　　[_Msg=="ちゃんちゃん"]!then[SMsg=SMsg+"11"]execute.
+　　[_Msg=="たったらったったー"]!then[SMsg=SMsg+"12"]execute.
+　　[_Msg=="ちぇいす"]!then[SMsg=SMsg+"13"]execute.
+　　[_Msg=="ピコーン"]!then[SMsg=SMsg+"14"]execute.
+　　[_Msg=="わわわわー"]!then[SMsg=SMsg+"15"]execute.
+　　[_Msg=="じゃんぷあっぷ"]!then[SMsg=SMsg+"16"]execute.
+　　[_Msg=="じゃんぷだうん"]!then[SMsg=SMsg+"17"]execute.
+　　[_Msg=="ぱわーあっぷ"]!then[SMsg=SMsg+"18"]execute.
+　　[_Msg=="ぱわーだうん"]!then[SMsg=SMsg+"19"]execute.
+　　
+　　SSMsg=SMsg.
+　　[SFlag]!then[SFlag=false.
+　　　　Timer!create 0.1 interval 1 times[]execute
+　　　　　　[self!(SSMsg+STMsg)write.SSMsg="".STMsg="".SFlag=true.]next_execute.
+　　]execute.
+　　SMsg="".
+].
+
+MBit:sendArrow=[|_Msg|
+　　SMsg=29!codechar.
+　　
+　　[_Msg=="0"]!then[SMsg=SMsg+"0"]execute.
+　　[_Msg=="1"]!then[SMsg=SMsg+"1"]execute.
+　　[_Msg=="2"]!then[SMsg=SMsg+"2"]execute.
+　　[_Msg=="3"]!then[SMsg=SMsg+"3"]execute.
+　　[_Msg=="4"]!then[SMsg=SMsg+"4"]execute.
+　　[_Msg=="5"]!then[SMsg=SMsg+"5"]execute.
+　　[_Msg=="6"]!then[SMsg=SMsg+"6"]execute.
+　　[_Msg=="7"]!then[SMsg=SMsg+"7"]execute.
+　　
+　　[_Msg=="０"]!then[SMsg=SMsg+"0"]execute.
+　　[_Msg=="１"]!then[SMsg=SMsg+"1"]execute.
+　　[_Msg=="２"]!then[SMsg=SMsg+"2"]execute.
+　　[_Msg=="３"]!then[SMsg=SMsg+"3"]execute.
+　　[_Msg=="４"]!then[SMsg=SMsg+"4"]execute.
+　　[_Msg=="５"]!then[SMsg=SMsg+"5"]execute.
+　　[_Msg=="６"]!then[SMsg=SMsg+"6"]execute.
+　　[_Msg=="７"]!then[SMsg=SMsg+"7"]execute.
+　　
+　　[_Msg=="↑"]!then[SMsg=SMsg+"0"]execute.
+　　[_Msg=="↗"]!then[SMsg=SMsg+"1"]execute.
+　　[_Msg=="→"]!then[SMsg=SMsg+"2"]execute.
+　　[_Msg=="↘"]!then[SMsg=SMsg+"3"]execute.
+　　[_Msg=="↓"]!then[SMsg=SMsg+"4"]execute.
+　　[_Msg=="↙"]!then[SMsg=SMsg+"5"]execute.
+　　[_Msg=="←"]!then[SMsg=SMsg+"6"]execute.
+　　[_Msg=="↖"]!then[SMsg=SMsg+"7"]execute.
+　　
+　　[_Msg=="上"]!then[SMsg=SMsg+"0"]execute.
+　　[_Msg=="右上"]!then[SMsg=SMsg+"1"]execute.
+　　[_Msg=="右"]!then[SMsg=SMsg+"2"]execute.
+　　[_Msg=="右下"]!then[SMsg=SMsg+"3"]execute.
+　　[_Msg=="下"]!then[SMsg=SMsg+"4"]execute.
+　　[_Msg=="左下"]!then[SMsg=SMsg+"5"]execute.
+　　[_Msg=="左"]!then[SMsg=SMsg+"6"]execute.
+　　[_Msg=="左上"]!then[SMsg=SMsg+"7"]execute.
+　　
+　　STMsg=SMsg.
+　　[SFlag]!then[SFlag=false.
+　　　　Timer!create 0.1 interval 1 times[]execute
+　　　　　　[self!(SSMsg+STMsg)write.SSMsg="".STMsg="".SFlag=true.]next_execute.
+　　]execute.
+　　SMsg="".
+].
+
+MBit:sendIcon=[|_Msg|
+　　SMsg=28!codechar.
+　　_Msg=""+_Msg.
+　　
+　　[_Msg=="0"]!then[SMsg=SMsg+"00"]execute.
+　　[_Msg=="1"]!then[SMsg=SMsg+"01"]execute.
+　　[_Msg=="2"]!then[SMsg=SMsg+"02"]execute.
+　　[_Msg=="3"]!then[SMsg=SMsg+"03"]execute.
+　　[_Msg=="4"]!then[SMsg=SMsg+"04"]execute.
+　　[_Msg=="5"]!then[SMsg=SMsg+"05"]execute.
+　　[_Msg=="6"]!then[SMsg=SMsg+"06"]execute.
+　　[_Msg=="7"]!then[SMsg=SMsg+"07"]execute.
+　　[_Msg=="8"]!then[SMsg=SMsg+"08"]execute.
+　　[_Msg=="9"]!then[SMsg=SMsg+"09"]execute.
+　　[_Msg=="10"]!then[SMsg=SMsg+"10"]execute.
+　　[_Msg=="11"]!then[SMsg=SMsg+"11"]execute.
+　　[_Msg=="12"]!then[SMsg=SMsg+"12"]execute.
+　　[_Msg=="13"]!then[SMsg=SMsg+"13"]execute.
+　　[_Msg=="14"]!then[SMsg=SMsg+"14"]execute.
+　　[_Msg=="15"]!then[SMsg=SMsg+"15"]execute.
+　　[_Msg=="16"]!then[SMsg=SMsg+"16"]execute.
+　　[_Msg=="17"]!then[SMsg=SMsg+"17"]execute.
+　　[_Msg=="18"]!then[SMsg=SMsg+"18"]execute.
+　　[_Msg=="19"]!then[SMsg=SMsg+"19"]execute.
+　　[_Msg=="20"]!then[SMsg=SMsg+"20"]execute.
+　　[_Msg=="21"]!then[SMsg=SMsg+"21"]execute.
+　　[_Msg=="22"]!then[SMsg=SMsg+"22"]execute.
+　　[_Msg=="23"]!then[SMsg=SMsg+"23"]execute.
+　　[_Msg=="24"]!then[SMsg=SMsg+"24"]execute.
+　　[_Msg=="25"]!then[SMsg=SMsg+"25"]execute.
+　　[_Msg=="26"]!then[SMsg=SMsg+"26"]execute.
+　　[_Msg=="27"]!then[SMsg=SMsg+"27"]execute.
+　　[_Msg=="28"]!then[SMsg=SMsg+"28"]execute.
+　　[_Msg=="29"]!then[SMsg=SMsg+"29"]execute.
+　　[_Msg=="30"]!then[SMsg=SMsg+"30"]execute.
+　　[_Msg=="31"]!then[SMsg=SMsg+"31"]execute.
+　　[_Msg=="32"]!then[SMsg=SMsg+"32"]execute.
+　　[_Msg=="33"]!then[SMsg=SMsg+"33"]execute.
+　　[_Msg=="34"]!then[SMsg=SMsg+"34"]execute.
+　　[_Msg=="35"]!then[SMsg=SMsg+"35"]execute.
+　　[_Msg=="36"]!then[SMsg=SMsg+"36"]execute.
+　　[_Msg=="37"]!then[SMsg=SMsg+"37"]execute.
+　　[_Msg=="38"]!then[SMsg=SMsg+"38"]execute.
+　　[_Msg=="39"]!then[SMsg=SMsg+"39"]execute.
+　　
+　　[_Msg=="０"]!then[SMsg=SMsg+"00"]execute.
+　　[_Msg=="１"]!then[SMsg=SMsg+"01"]execute.
+　　[_Msg=="２"]!then[SMsg=SMsg+"02"]execute.
+　　[_Msg=="３"]!then[SMsg=SMsg+"03"]execute.
+　　[_Msg=="４"]!then[SMsg=SMsg+"04"]execute.
+　　[_Msg=="５"]!then[SMsg=SMsg+"05"]execute.
+　　[_Msg=="６"]!then[SMsg=SMsg+"06"]execute.
+　　[_Msg=="７"]!then[SMsg=SMsg+"07"]execute.
+　　[_Msg=="８"]!then[SMsg=SMsg+"08"]execute.
+　　[_Msg=="９"]!then[SMsg=SMsg+"09"]execute.
+　　[_Msg=="１０"]!then[SMsg=SMsg+"10"]execute.
+　　[_Msg=="１１"]!then[SMsg=SMsg+"11"]execute.
+　　[_Msg=="１２"]!then[SMsg=SMsg+"12"]execute.
+　　[_Msg=="１３"]!then[SMsg=SMsg+"13"]execute.
+　　[_Msg=="１４"]!then[SMsg=SMsg+"14"]execute.
+　　[_Msg=="１５"]!then[SMsg=SMsg+"15"]execute.
+　　[_Msg=="１６"]!then[SMsg=SMsg+"16"]execute.
+　　[_Msg=="１７"]!then[SMsg=SMsg+"17"]execute.
+　　[_Msg=="１８"]!then[SMsg=SMsg+"18"]execute.
+　　[_Msg=="１９"]!then[SMsg=SMsg+"19"]execute.
+　　[_Msg=="２０"]!then[SMsg=SMsg+"20"]execute.
+　　[_Msg=="２１"]!then[SMsg=SMsg+"21"]execute.
+　　[_Msg=="２２"]!then[SMsg=SMsg+"22"]execute.
+　　[_Msg=="２３"]!then[SMsg=SMsg+"23"]execute.
+　　[_Msg=="２４"]!then[SMsg=SMsg+"24"]execute.
+　　[_Msg=="２５"]!then[SMsg=SMsg+"25"]execute.
+　　[_Msg=="２６"]!then[SMsg=SMsg+"26"]execute.
+　　[_Msg=="２７"]!then[SMsg=SMsg+"27"]execute.
+　　[_Msg=="２８"]!then[SMsg=SMsg+"28"]execute.
+　　[_Msg=="２９"]!then[SMsg=SMsg+"29"]execute.
+　　[_Msg=="３０"]!then[SMsg=SMsg+"30"]execute.
+　　[_Msg=="３１"]!then[SMsg=SMsg+"31"]execute.
+　　[_Msg=="３２"]!then[SMsg=SMsg+"32"]execute.
+　　[_Msg=="３３"]!then[SMsg=SMsg+"33"]execute.
+　　[_Msg=="３４"]!then[SMsg=SMsg+"34"]execute.
+　　[_Msg=="３５"]!then[SMsg=SMsg+"35"]execute.
+　　[_Msg=="３６"]!then[SMsg=SMsg+"36"]execute.
+　　[_Msg=="３７"]!then[SMsg=SMsg+"37"]execute.
+　　[_Msg=="３８"]!then[SMsg=SMsg+"38"]execute.
+　　[_Msg=="３９"]!then[SMsg=SMsg+"39"]execute.
+　　
+　　[_Msg=="ハート"]!then[SMsg=SMsg+"00"]execute.
+　　[_Msg=="小さいハート"]!then[SMsg=SMsg+"01"]execute.
+　　[_Msg=="チェック"]!then[SMsg=SMsg+"02"]execute.
+　　[_Msg=="バツ"]!then[SMsg=SMsg+"03"]execute.
+　　[_Msg=="うれしい顔"]!then[SMsg=SMsg+"04"]execute.
+　　[_Msg=="かなしい顔"]!then[SMsg=SMsg+"05"]execute.
+　　[_Msg=="こまり顔"]!then[SMsg=SMsg+"06"]execute.
+　　[_Msg=="おこり顔"]!then[SMsg=SMsg+"07"]execute.
+　　[_Msg=="ねてる顔"]!then[SMsg=SMsg+"08"]execute.
+　　[_Msg=="びっくり顔"]!then[SMsg=SMsg+"09"]execute.
+　　[_Msg=="へん顔"]!then[SMsg=SMsg+"10"]execute.
+　　[_Msg=="すばらしい"]!then[SMsg=SMsg+"11"]execute.
+　　[_Msg=="ふーん"]!then[SMsg=SMsg+"12"]execute.
+　　[_Msg=="Tシャツ"]!then[SMsg=SMsg+"13"]execute.
+　　[_Msg=="ローラースケート"]!then[SMsg=SMsg+"14"]execute.
+　　[_Msg=="あひる"]!then[SMsg=SMsg+"15"]execute.
+　　[_Msg=="家"]!then[SMsg=SMsg+"16"]execute.
+　　[_Msg=="かめ"]!then[SMsg=SMsg+"17"]execute.
+　　[_Msg=="ちょうちょ"]!then[SMsg=SMsg+"18"]execute.
+　　[_Msg=="棒人間"]!then[SMsg=SMsg+"19"]execute.
+　　[_Msg=="おばけ"]!then[SMsg=SMsg+"20"]execute.
+　　[_Msg=="剣"]!then[SMsg=SMsg+"21"]execute.
+　　[_Msg=="きりん"]!then[SMsg=SMsg+"22"]execute.
+　　[_Msg=="がいこつ"]!then[SMsg=SMsg+"23"]execute.
+　　[_Msg=="かさ"]!then[SMsg=SMsg+"24"]execute.
+　　[_Msg=="へび"]!then[SMsg=SMsg+"25"]execute.
+　　[_Msg=="うさぎ"]!then[SMsg=SMsg+"26"]execute.
+　　[_Msg=="うし"]!then[SMsg=SMsg+"27"]execute.
+　　[_Msg=="4分音符"]!then[SMsg=SMsg+"28"]execute.
+　　[_Msg=="8分音符"]!then[SMsg=SMsg+"29"]execute.
+　　[_Msg=="くまで"]!then[SMsg=SMsg+"30"]execute.
+　　[_Msg=="まと"]!then[SMsg=SMsg+"31"]execute.
+　　[_Msg=="三角"]!then[SMsg=SMsg+"32"]execute.
+　　[_Msg=="左向き三角"]!then[SMsg=SMsg+"33"]execute.
+　　[_Msg="チェスボード"]!then[SMsg=SMsg+"34"]execute.
+　　[_Msg=="ダイアモンド"]!then[SMsg=SMsg+"35"]execute.
+　　[_Msg=="小さいダイアモンド"]!then[SMsg=SMsg+"36"]execute.
+　　[_Msg=="しかく"]!then[SMsg=SMsg+"37"]execute.
+　　[_Msg=="小さいしかく"]!then[SMsg=SMsg+"38"]execute.
+　　[_Msg=="はさみ"]!then[SMsg=SMsg+"39"]execute.
+　　
+　　STMsg=SMsg.
+　　[SFlag]!then[SFlag=false.
+　　　　Timer!create 0.1 interval 1 times[]execute
+　　　　　　[self!(SSMsg+STMsg)write.SSMsg="".STMsg="".SFlag=true.]next_execute.
+　　]execute.
+　　SMsg="".
+].
+
+MBit:sendDisplay=[|_Key _Msg|
+　　[_Msg==undef]!then[
+　　　　self!(_Key)sendstr.
+　　　　
+　　　　[_Key=="↑"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="↗"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="→"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="↘"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="↓"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="↙"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="←"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="↖"]!then[self!(_Key)sendArrow]execute.
+
+　　　　[_Key=="上"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="右上"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="右"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="右下"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="下"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="左下"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="左"]!then[self!(_Key)sendArrow]execute.
+　　　　[_Key=="左上"]!then[self!(_Key)sendArrow]execute.
+　　]execute.
+　　[_Msg!=undef]!then[
+　　　　[_Key="文字"]!then[self!(_Msg)sendstr]execute.
+　　　　[_Key="矢印"]!then[self!(_Msg)sendArrow]execute.
+　　　　[_Key="アイコン"]!then[self!(_Msg)sendIcon]execute.
+　　]execute.
+].
+/////////////////////////////////////////////
+!"root"  "マイクロビット" "まいくろびっと"
+　　"microBit" "microbit" "MicroBit" "mbit"
+　　"MBit" addAliasFromTable.
+　　
+MBit!"get" "読む" addAlias.
+MBit!"sendstr" "文字表示" addAlias.
+MBit!"sendSE" "効果音" addAlias.
+MBit!"sendArrow" "矢印表示" addAlias.
+MBit!"sendIcon" "アイコン表示" addAlias.
+MBit!"sendDisplay" "表示" addAlias.
+
+MBit!"SetAction" "動作設定"addAlias.
+
+MBit!"Aボタン" "pushA"addAlias.
+MBit!"Bボタン" "pushB"addAlias.
+MBit!"ABボタン" "pushAB"addAlias.
+
+MBit!"P0" "touchP0"addAlias.
+MBit!"P1" "touchP1"addAlias.
+MBit!"P2" "touchP2"addAlias.
+
+MBit!"画面が上" "screenUp"addAlias.
+MBit!"画面が下" "screenDown"addAlias.
+MBit!"ロゴが上" "logoUp"addAlias.
+MBit!"ロゴが下" "logoDown"addAlias.
+
+MBit!"左に傾ける" "tiltL"addAlias.
+MBit!"右に傾ける" "tiltR"addAlias.
+
+MBit!"落とした" "freeFall"addAlias.
+MBit!"シェイク" "shake"addAlias.

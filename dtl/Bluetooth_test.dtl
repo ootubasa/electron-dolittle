@@ -1,0 +1,17 @@
+system!"Bluetooth"use.
+
+A=ボタン！”テスト0”作る　次の行。
+A:動作＝「Bluetooth!"t_kamada"write」。
+A1=ボタン！”テスト1”作る　次の行。
+A1:動作＝「
+　　Bluetooth!
+　　　　"*****"
+　　　　"****-"
+　　　　"***-*"
+　　　　"-*-**"
+　　　　"*-***"
+　　draw
+」。
+
+A2=ボタン！”テスト2”作る　次の行。
+A2:動作＝「self!(Bluetooth!read)write」。
