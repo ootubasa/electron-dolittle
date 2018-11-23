@@ -1,33 +1,54 @@
 (function() {
+  root.MBit = root.create();
+  root.MBit.status = "search";
+  root.MBit.accelX = 0;
+  root.MBit.accelY = 0;
+  root.MBit.accelZ = 0;
+  root.MBit.Abtn = 0;
+  root.MBit.Bbtn = 0;
+  root.MBit.tmp = 0;
+  root.MBit.magX = 0;
+  root.MBit.magY = 0;
+  root.MBit.magZ = 0;
+  root.MBit.P0 = 0;
+  root.MBit.P1 = 0;
+  root.MBit.P2 = 0;
+
   let BBCMicrobit = require("bbc-microbit");
 
   BBCMicrobit.discover(function(microbit) {
-    console.log(microbit);
-
+    root.MBit.status="setup"
     microbit.on("disconnect", function() {
       process.exit(0);
     });
 
     microbit.on("accelerometerChange", function(x, y, z) {
-      console.log("accel = %f %f %f G", x, y, z);
+      root.MBit.accelX = x;
+      root.MBit.accelY = y;
+      root.MBit.accelZ = z;
     });
     microbit.on("buttonAChange", function(val) {
-      console.log("Abtn = " + val);
+      root.MBit.Abtn = val;
     });
     microbit.on("buttonBChange", function(val) {
-      console.log("Bbtn = " + val);
+      root.MBit.Bbtn = val;
     });
     microbit.on("temperatureChange", function(tmp) {
-      console.log("tmp = " + tmp);
+      root.MBit.tmp = tmp;
     });
     microbit.on("magnetometerChange", function(x, y, z) {
-      console.log("mag = %d %d %d", x, y, z);
+      root.MBit.magX = x;
+      root.MBit.magY = y;
+      root.MBit.magZ = z;
     });
     microbit.on("pinDataChange", function(pin, val) {
-      console.log("pin = %d, value = %d", pin, val);
+      if (pin === 0) root.MBit.P0 = val;
+      if (pin === 1) root.MBit.P1 = val;
+      if (pin === 2) root.MBit.P2 = val;
     });
 
     microbit.connectAndSetUp(function() {
+      root.MBit.status="start";
       microbit.writeAccelerometerPeriod(160, function() {
         microbit.subscribeAccelerometer();
       });
@@ -53,8 +74,12 @@
           microbit.subscribePinData();
         });
       });
-      microbit.writeLedMatrixState(new Buffer([0, 0, 0, 0, 0]));
-      // microbit.writeLedText("Dolittle");
+      root.MBit.write = function() {
+        microbit.writeLedMatrixState(new Buffer([0, 0, 0, 0, 0]));
+      };
+      root.MBit.draw = function() {
+        microbit.writeLedText("Dolittle");
+      };
     });
   });
 }
