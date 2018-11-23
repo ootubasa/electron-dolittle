@@ -25,6 +25,9 @@
     microbit.on("magnetometerChange", function(x, y, z) {
       console.log("mag = %d %d %d", x, y, z);
     });
+    microbit.on("pinDataChange", function(pin, value) {
+      console.log("pin = %d, value = %d", pin, value);
+    });
 
     microbit.connectAndSetUp(function() {
       microbit.writeAccelerometerPeriod(period, function() {
@@ -37,6 +40,23 @@
       microbit.writeMagnetometerPeriod(period, function() {
         microbit.subscribeMagnetometer();
       });
+      microbit.pinInput(0, function() {
+        microbit.pinAnalog(0, function() {
+          microbit.subscribePinData();
+        });
+      });
+      microbit.pinInput(1, function() {
+        microbit.pinAnalog(1, function() {
+          microbit.subscribePinData();
+        });
+      });
+      microbit.pinInput(2, function() {
+        microbit.pinAnalog(2, function() {
+          microbit.subscribePinData();
+        });
+      });
+      microbit.writeLedMatrixState(new Buffer([0, 0, 0, 0, 0]));
+      // microbit.writeLedText("Dolittle");
     });
   });
 }
