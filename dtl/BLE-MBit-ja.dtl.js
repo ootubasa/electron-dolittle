@@ -1,55 +1,55 @@
 (function() {
   root.MBit = root.create();
-  root.MBit.status = "search";
-  root.MBit.accelX = 0;
-  root.MBit.accelY = 0;
-  root.MBit.accelZ = 0;
-  root.MBit.Abtn = 0;
-  root.MBit.Bbtn = 0;
-  root.MBit.tmp = 0;
-  root.MBit.magX = 0;
-  root.MBit.magY = 0;
-  root.MBit.magZ = 0;
-  root.MBit.P0 = 0;
-  root.MBit.P1 = 0;
-  root.MBit.P2 = 0;
+  root.MBit.ステータス = "探し中";
+  root.MBit.加速度X = 0;
+  root.MBit.加速度Y = 0;
+  root.MBit.加速度Z = 0;
+  root.MBit.Aボタン = 0;
+  root.MBit.Bボタン = 0;
+  root.MBit.温度 = 0;
+  root.MBit.磁力X = 0;
+  root.MBit.磁力Y = 0;
+  root.MBit.磁力Z = 0;
+  root.MBit.ピン0 = 0;
+  root.MBit.ピン1 = 0;
+  root.MBit.ピン2 = 0;
 
   let BBCMicrobit = require("bbc-microbit");
 
   BBCMicrobit.discover(function(microbit) {
-    root.MBit.status = "setup";
+    root.MBit.ステータス = "準備中";
     microbit.on("disconnect", function() {
-      root.MBit.status = "disconnect";
+      root.MBit.ステータス = "切断";
       process.exit(0);
     });
 
     microbit.on("accelerometerChange", function(x, y, z) {
-      root.MBit.accelX = x;
-      root.MBit.accelY = y;
-      root.MBit.accelZ = z;
+      root.MBit.加速度X = x;
+      root.MBit.加速度Y = y;
+      root.MBit.加速度Z = z;
     });
     microbit.on("buttonAChange", function(val) {
-      root.MBit.Abtn = val;
+      root.MBit.Aボタン = val;
     });
     microbit.on("buttonBChange", function(val) {
-      root.MBit.Bbtn = val;
+      root.MBit.Bボタン = val;
     });
     microbit.on("temperatureChange", function(tmp) {
-      root.MBit.tmp = tmp;
+      root.MBit.温度 = tmp;
     });
     microbit.on("magnetometerChange", function(x, y, z) {
-      root.MBit.magX = x;
-      root.MBit.magY = y;
-      root.MBit.magZ = z;
+      root.MBit.磁力X = x;
+      root.MBit.磁力Y = y;
+      root.MBit.磁力Z = z;
     });
     microbit.on("pinDataChange", function(pin, val) {
-      if (pin === 0) root.MBit.P0 = val;
-      if (pin === 1) root.MBit.P1 = val;
-      if (pin === 2) root.MBit.P2 = val;
+      if (pin === 0) root.MBit.ピン0 = val;
+      if (pin === 1) root.MBit.ピン1 = val;
+      if (pin === 2) root.MBit.ピン2 = val;
     });
 
     microbit.connectAndSetUp(function() {
-      root.MBit.status = "connect";
+      root.MBit.ステータス = "接続中";
       microbit.writeAccelerometerPeriod(160, function() {
         microbit.subscribeAccelerometer();
       });
@@ -75,7 +75,7 @@
           microbit.subscribePinData();
         });
       });
-      root.MBit.write = function(_t0, _t1, _t2, _t3, _t4) {
+      root.MBit.LED表示 = function(_t0, _t1, _t2, _t3, _t4) {
         var buffer = new Uint8Array(5);
         var text = _t0 + _t1 + _t2 + _t3 + _t4;
         for (var s = 0; s < 5; s++)
@@ -87,7 +87,7 @@
           }
         microbit.writeLedMatrixState(new Buffer(buffer));
       };
-      root.MBit.draw = function(t) {
+      root.MBit.LED文字 = function(t) {
         microbit.writeLedText(t);
       };
     });
