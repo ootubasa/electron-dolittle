@@ -35,24 +35,24 @@ LED表示：動作＝「
 　　　　"***-*"
 　　　　"-*-**"
 　　　　"*-***"
-　　LED表示
+　　write
 」。
 ラベル！"LED文字"作る　次の行。
 LED文字＝フィールド！"test"作る。
-LED文字：動作＝「|t|MBit!(t)LED文字」。
+LED文字：動作＝「|t|MBit!(t)draw」。
 
 タイマー！作る　0.16　間隔　60000　回数「
-　　ステータス！(MBit:ステータス)書く。
-　　加速度X！(MBit:加速度X)書く。
-　　加速度Y！(MBit:加速度Y)書く。
-　　加速度Z！(MBit:加速度Z)書く。
-　　Aボタン！(MBit:Aボタン)書く。
-　　Bボタン！(MBit:Bボタン)書く。
-　　温度！(MBit:温度)書く。
-　　磁力X！(MBit:磁力X)書く。
-　　磁力Y！(MBit:磁力Y)書く。
-　　磁力Z！(MBit:磁力Z)書く。
-　　ピン0！(MBit:ピン0)書く。
-　　ピン1！(MBit:ピン1)書く。
-　　ピン2！(MBit:ピン2)書く。
+　　ステータス！(MBit:status)書く。
+　　加速度X！(MBit:accelX)書く。
+　　加速度Y！(MBit:accelY)書く。
+　　加速度Z！(MBit:accelZ)書く。
+　　Aボタン！(MBit:Abtn)書く。
+　　Bボタン！(MBit:Bbtn)書く。
+　　温度！(MBit:tmp)書く。
+　　磁力X！(MBit:magX)書く。
+　　磁力Y！(MBit:magY)書く。
+　　磁力Z！(MBit:magZ)書く。
+　　ピン0！(MBit:P0)書く。
+　　ピン1！(MBit:P1)書く。
+　　ピン2！(MBit:P2)書く。
 」実行。
