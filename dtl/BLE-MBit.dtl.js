@@ -1,6 +1,6 @@
 (function() {
   root.MBit = root.create();
-  root.MBit.ステータス = "探し中";
+  root.MBit.ステータス = "検索中";
   root.MBit.加速度X = 0;
   root.MBit.加速度Y = 0;
   root.MBit.加速度Z = 0;

@@ -1,7 +1,7 @@
 require('ace-min-noconflict');
 require('ace-min-noconflict/mode-dolittle');
 require('ace-min-noconflict/theme-chrome');
-require('ace-min-noconflict/ext-language_tools');
+// require('ace-min-noconflict/ext-language_tools');
 require('ace-min-noconflict/ext-searchbox');
 
 let editor;
