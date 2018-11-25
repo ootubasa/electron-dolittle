@@ -10,6 +10,7 @@
   root.MBit.磁力X = 0;
   root.MBit.磁力Y = 0;
   root.MBit.磁力Z = 0;
+  root.MBit.方位 = 0;
   root.MBit.ピン0 = 0;
   root.MBit.ピン1 = 0;
   root.MBit.ピン2 = 0;
@@ -42,6 +43,9 @@
       root.MBit.磁力Y = y;
       root.MBit.磁力Z = z;
     });
+    microbit.on("magnetometerBearingChange", function(val) {
+      root.MBit.方位 = val;
+    });
     microbit.on("pinDataChange", function(pin, val) {
       if (pin === 0) root.MBit.ピン0 = val;
       if (pin === 1) root.MBit.ピン1 = val;
@@ -59,6 +63,7 @@
       });
       microbit.writeMagnetometerPeriod(160, function() {
         microbit.subscribeMagnetometer();
+        microbit.subscribeMagnetometerBearing();
       });
       microbit.pinInput(0, function() {
         microbit.pinAnalog(0, function() {
