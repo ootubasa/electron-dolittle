@@ -1,78 +1,78 @@
-require('ace-min-noconflict');
-require('ace-min-noconflict/mode-dolittle');
-require('ace-min-noconflict/theme-chrome');
+require("ace-min-noconflict");
+require("ace-min-noconflict/mode-dolittle");
+require("ace-min-noconflict/theme-chrome");
 // require('ace-min-noconflict/ext-language_tools');
-require('ace-min-noconflict/ext-searchbox');
+require("ace-min-noconflict/ext-searchbox");
 
 let editor;
-window.addEventListener('DOMContentLoaded', function () {
-    editor = ace.edit("editor");
-    editor.setTheme("ace/theme/chrome");
-    editor.getSession().setMode('ace/mode/dolittle');
+window.addEventListener("DOMContentLoaded", function() {
+  editor = ace.edit("editor");
+  editor.setTheme("ace/theme/chrome");
+  editor.getSession().setMode("ace/mode/dolittle");
 
-    editor.$blockScrolling = Infinity;
-    editor.getSession().setUseWrapMode(true);
-    editor.setFontSize(16);
-    try {
-        editor.setValue(
-            fs.readFileSync(__dirname + "/run/run.dtl").toString()
-        );
+  editor.$blockScrolling = Infinity;
+  editor.getSession().setUseWrapMode(true);
+  editor.setFontSize(16);
+  try {
+    editor.setValue(fs.readFileSync(__dirname + "/run/run.dtl").toString());
+    $("title").text("electron-dolittle | " + __dirname + "/run/run.dtl");
+  } catch (err) {
+    console.log(err);
+  }
+
+  editor.setOptions({
+    enableBasicAutocompletion: true,
+    enableLiveAutocompletion: true
+  });
+
+  editor.commands.addCommand({
+    name: "fontSizeUp",
+    bindKey: {
+      win: "Ctrl-UP",
+      mac: "Command-UP"
+    },
+    exec: function(editor) {
+      editor.setFontSize(editor.getFontSize() + 1);
     }
-    catch (err) { console.log(err) };
-
-    editor.setOptions({
-        enableBasicAutocompletion: true,
-        enableLiveAutocompletion: true
-    });
-
-    editor.commands.addCommand({
-        name: "fontSizeUp",
-        bindKey: {
-            win: "Ctrl-UP",
-            mac: "Command-UP",
-        },
-        exec: function (editor) {
-            editor.setFontSize(editor.getFontSize() + 1);
-        }
-    });
-    editor.commands.addCommand({
-        name: "fontSizeDown",
-        bindKey: {
-            win: "Ctrl-DOWN",
-            mac: "Command-DOWN",
-        },
-        exec: function (editor) {
-            editor.setFontSize(editor.getFontSize() - 1);
-        }
-    });
-    editor.commands.addCommand({
-        name: "dolittleRun",
-        bindKey: {
-            win: "Ctrl-g",
-            mac: "Command-g",
-        },
-        exec: function (editor) {
-            $("#run").click();
-        }
-    });
-    editor.commands.addCommand({
-        name: "dolittleSave",
-        bindKey: {
-            win: "Ctrl-s",
-            mac: "Command-s",
-        },
-        exec: function (editor) {
-            $("#save").click();
-        }
-    });
-    editor.commands.addCommand({
-        name: "dolittleLoad",
-        bindKey: {
-            win: "Ctrl-o",
-            mac: "Command-o",
-        },
-        exec: function (editor) {
-            $("#load").click();
-        }
-    });
+  });
+  editor.commands.addCommand({
+    name: "fontSizeDown",
+    bindKey: {
+      win: "Ctrl-DOWN",
+      mac: "Command-DOWN"
+    },
+    exec: function(editor) {
+      editor.setFontSize(editor.getFontSize() - 1);
+    }
+  });
+  editor.commands.addCommand({
+    name: "dolittleRun",
+    bindKey: {
+      win: "Ctrl-g",
+      mac: "Command-g"
+    },
+    exec: function(editor) {
+      $("#run").click();
+    }
+  });
+  editor.commands.addCommand({
+    name: "dolittleSave",
+    bindKey: {
+      win: "Ctrl-s",
+      mac: "Command-s"
+    },
+    exec: function(editor) {
+      $("#save").click();
+    }
+  });
+  editor.commands.addCommand({
+    name: "dolittleLoad",
+    bindKey: {
+      win: "Ctrl-o",
+      mac: "Command-o"
+    },
+    exec: function(editor) {
+      $("#load").click();
+    }
+  });
 });
