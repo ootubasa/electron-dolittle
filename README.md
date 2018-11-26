@@ -28,3 +28,5 @@ nodejs-dolittleを基に開発しています。
 >micro:bit を Scratch 2 + Bluetooth で使う：https://qiita.com/memakura/items/11a0426f9060da1ded7e  
 >Aceエディタ で日本語入力時のちらつきを解消する：https://qiita.com/RAWSEQ/items/7f9fc0fd4b3d572856ed
 
+・謝辞  
+本プロジェクトに関連する方々へ感謝します
