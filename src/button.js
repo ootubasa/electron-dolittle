@@ -24,7 +24,7 @@ $("#load").click(function() {
       try {
         filename = name.toString();
         editor.setValue(fs.readFileSync(name.toString()).toString());
-        $("title").text("electron-dolittle | " + filename);
+        $("title").text("edit | electron-dolittle | " + filename);
       } catch {
         alert("ファイルを読み込めませんでした");
       }
@@ -55,7 +55,7 @@ $("#save").click(function() {
       try {
         filename = name.toString();
         fs.writeFileSync(name.toString(), editor.getSession().getValue());
-        $("title").text("electron-dolittle | " + filename);
+        $("title").text("edit | electron-dolittle | " + filename);
       } catch {
         alert("ファイルを保存できませんでした");
       }

@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", function() {
   editor.setFontSize(16);
   try {
     editor.setValue(fs.readFileSync(__dirname + "/run/run.dtl").toString());
-    $("title").text("electron-dolittle | " + __dirname + "/run/run.dtl");
+    $("title").text("edit | electron-dolittle | " + __dirname + "/run/run.dtl");
   } catch (err) {
     console.log(err);
   }
