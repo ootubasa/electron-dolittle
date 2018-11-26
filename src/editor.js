@@ -51,7 +51,7 @@ window.addEventListener("DOMContentLoaded", function() {
       win: "Ctrl-g",
       mac: "Command-g"
     },
-    exec: function(editor) {
+    exec: function() {
       $("#run").click();
     }
   });
@@ -61,7 +61,7 @@ window.addEventListener("DOMContentLoaded", function() {
       win: "Ctrl-s",
       mac: "Command-s"
     },
-    exec: function(editor) {
+    exec: function() {
       $("#save").click();
     }
   });
@@ -71,7 +71,7 @@ window.addEventListener("DOMContentLoaded", function() {
       win: "Ctrl-o",
       mac: "Command-o"
     },
-    exec: function(editor) {
+    exec: function() {
       $("#load").click();
     }
   });
