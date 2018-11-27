@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="jp">
-
-<head>
+  <head>
     <title>edit | electron-dolittle</title>
     <!-- meta -->
-    <meta charset="utf-8">
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';" /> -->
+    <meta charset="utf-8" />
+    <!--
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';" />
+    -->
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="src/editor.css" />
-    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap-honoka/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="node_modules/bootstrap-honoka/dist/css/bootstrap.min.css"
+    />
     <!-- util -->
     <script>
-        dialog = require('electron').remote.dialog;
-        $ = require('jquery');
-        fs = require('fs');
-        Bootstrap = require('bootstrap-honoka');
+      dialog = require("electron").remote.dialog;
+      $ = require("jquery");
+      fs = require("fs");
+      Bootstrap = require("bootstrap-honoka");
     </script>
     <script>
-        window.addEventListener('beforeunload', () => {
-            fs.writeFileSync(__dirname + '/run/run.dtl', editor.getSession().getValue());
-        });
+      window.addEventListener("beforeunload", () => {
+        fs.writeFileSync(
+          __dirname + "/run/run.dtl",
+          editor.getSession().getValue()
+        );
+      });
     </script>
     <!-- editor -->
     <script charset="utf-8" src="src/editor.js"></script>
@@ -30,19 +38,19 @@
     <script charset="utf-8" src="src/transpiler/minimal.js"></script>
     <!-- run.dtlをrun.jsに変換 -->
     <script charset="utf-8" src="src/DtoJ.js"></script>
-</head>
+  </head>
 
-<body>
-    <button id=load type="button" class="btn btn-default">読み込み</button>
-    <button id=save type="button" class="btn btn-default">　保存　</button>
-    <button id=run type="button" class="btn btn-default">　実行　</button>
-    &emsp;
-    <button id=Up type="button" class="btn btn-default">＋</button>
-    <button id=Default type="button" class="btn btn-default">文字サイズ</button>
-    <button id=Down type="button" class="btn btn-default">－</button>
+  <body>
+    <button id="load" type="button" class="btn btn-default">読み込み</button>
+    <button id="save" type="button" class="btn btn-default">保存</button>
+    <button id="run" type="button" class="btn btn-default">実行</button> &emsp;
+    <button id="Up" type="button" class="btn btn-default">＋</button>
+    <button id="Default" type="button" class="btn btn-default">
+      文字サイズ
+    </button>
+    <button id="Down" type="button" class="btn btn-default">－</button>
     <div id="editor"></div>
-</body>
+  </body>
 
-<script charset="utf-8" src="src/button.js"></script>
-
+  <script charset="utf-8" src="src/button.js"></script>
 </html>
