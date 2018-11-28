@@ -1,8 +1,8 @@
-require("ace-min-noconflict");
-require("ace-min-noconflict/mode-dolittle");
-require("ace-min-noconflict/theme-chrome");
-// require('ace-min-noconflict/ext-language_tools');
-require("ace-min-noconflict/ext-searchbox");
+ace = require("brace");
+require("brace/mode/dolittle");
+require("brace/theme/chrome");
+require("brace/ext/language_tools");
+require("brace/ext/searchbox");
 
 let editor;
 window.addEventListener("DOMContentLoaded", function() {
