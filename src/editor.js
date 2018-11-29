@@ -1,7 +1,7 @@
 ace = require("brace");
 require("brace/mode/dolittle");
 require("brace/theme/chrome");
-require("brace/ext/language_tools");
+// require("brace/ext/language_tools");
 require("brace/ext/searchbox");
 
 let editor;

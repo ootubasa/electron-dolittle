@@ -23,6 +23,6 @@
     "brace": "^0.9.1",
     "jquery": "^3.3.1",
     "noble-uwp": "^0.6.2",
-    "serialport": "^7.0.2"
+    "serialport": "^7.1.0"
   }
 }
