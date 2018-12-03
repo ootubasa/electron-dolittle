@@ -92,16 +92,48 @@
           }
         });
       }
-      microbit.pinInput(1, function() {
-        microbit.pinAnalog(1, function() {
-          microbit.subscribePinData();
+      if (root.MBit.IO設定ピン1 === "入力") {
+        microbit.pinInput(1, function() {
+          if (root.MBit.AD設定ピン1 === "アナログ") {
+            microbit.pinAnalog(1, function() {
+              microbit.subscribePinData();
+            });
+          } else {
+            microbit.pinDigital(1, function() {
+              microbit.subscribePinData();
+            });
+          }
         });
-      });
-      microbit.pinInput(2, function() {
-        microbit.pinAnalog(2, function() {
-          microbit.subscribePinData();
+      } else {
+        microbit.pinOutput(1, function() {
+          if (root.MBit.AD設定ピン1 === "アナログ") {
+            microbit.pinDigital(1, function() {});
+          } else {
+            microbit.pinAnalog(1, function() {});
+          }
         });
-      });
+      }
+      if (root.MBit.IO設定ピン2 === "入力") {
+        microbit.pinInput(2, function() {
+          if (root.MBit.AD設定ピン2 === "アナログ") {
+            microbit.pinAnalog(2, function() {
+              microbit.subscribePinData();
+            });
+          } else {
+            microbit.pinDigital(2, function() {
+              microbit.subscribePinData();
+            });
+          }
+        });
+      } else {
+        microbit.pinOutput(2, function() {
+          if (root.MBit.AD設定ピン2 === "アナログ") {
+            microbit.pinDigital(2, function() {});
+          } else {
+            microbit.pinAnalog(2, function() {});
+          }
+        });
+      }
       root.MBit.LED表示 = function(_t0, _t1, _t2, _t3, _t4) {
         var buffer = new Uint8Array(5);
         var text = _t0 + _t1 + _t2 + _t3 + _t4;
