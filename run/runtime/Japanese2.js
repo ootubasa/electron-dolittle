@@ -63,6 +63,7 @@
         this["addAliasFromTable"]("system", "時", "hour?");
         this["addAliasFromTable"]("system", "分", "minute?");
         this["addAliasFromTable"]("system", "秒", "second?");
+        this["addAliasFromTable"]("system", "ミリ秒", "millisecond?");
         this["addAliasFromTable"](
           "system",
           "システム時間?,システム時間",
@@ -786,6 +787,7 @@
         this["addAliasFromTable"]("system", "時?", "じ?", "hour?");
         this["addAliasFromTable"]("system", "分?", "ふん?", "minute?");
         this["addAliasFromTable"]("system", "秒?", "びょう?", "second?");
+        this["addAliasFromTable"]("system", "ミリ秒?", "みりびょう?", "millisecond?");
         this["addAliasFromTable"](
           "system",
           "システム秒?",
