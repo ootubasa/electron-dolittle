@@ -14,6 +14,12 @@
   root.MBit.ピン0 = 0;
   root.MBit.ピン1 = 0;
   root.MBit.ピン2 = 0;
+  root.MBit.ピン0.IO設定 = "入力";
+  root.MBit.ピン1.IO設定 = "入力";
+  root.MBit.ピン2.IO設定 = "入力";
+  root.MBit.ピン0.AD設定 = "アナログ";
+  root.MBit.ピン1.AD設定 = "アナログ";
+  root.MBit.ピン2.AD設定 = "アナログ";
 
   let BBCMicrobit = require("bbc-microbit");
 
@@ -65,11 +71,27 @@
         microbit.subscribeMagnetometer();
         microbit.subscribeMagnetometerBearing();
       });
-      microbit.pinInput(0, function() {
-        microbit.pinAnalog(0, function() {
-          microbit.subscribePinData();
+      if (root.MBit.ピン0.IO設定 === "入力") {
+        microbit.pinInput(0, function() {
+          if (root.MBit.ピン0.AD設定 === "アナログ") {
+            microbit.pinAnalog(0, function() {
+              microbit.subscribePinData();
+            });
+          } else {
+            microbit.pinDigital(0, function() {
+              microbit.subscribePinData();
+            });
+          }
         });
-      });
+      } else {
+        microbit.pinOutput(0, function() {
+          if (root.MBit.ピン0.AD設定 === "アナログ") {
+            microbit.pinDigital(0, function() {});
+          } else {
+            microbit.pinAnalog(0, function() {});
+          }
+        });
+      }
       microbit.pinInput(1, function() {
         microbit.pinAnalog(1, function() {
           microbit.subscribePinData();
