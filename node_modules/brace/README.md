@@ -1,5 +1,7 @@
 # brace
 
+<a href="https://www.patreon.com/bePatron?u=8663953"><img alt="become a patron" src="https://c5.patreon.com/external/logo/become_a_patron_button.png" height="35px"></a>
+
 [browserify](https://github.com/substack/node-browserify) compatible version of the [ace editor](http://ajaxorg.github.io/ace/).
 
 [![browser support](https://ci.testling.com/thlorenz/brace.png)](https://ci.testling.com/thlorenz/brace)
@@ -89,7 +91,7 @@ You do not need an additional install step or another tool to install these defi
 
 These type definitions are kept up to date in the same way as the rest of brace. There is an
 [update script](https://github.com/thlorenz/brace/blob/master/build/update-ts.js) which automatically pulls
-down the [DefinitelyTyped definition](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/ace/ace.d.ts)
+down the [DefinitelyTyped definition](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/ace/index.d.ts)
 and refactors it to be modular rather than global.
 
 ## Test
