@@ -26,8 +26,7 @@ nodejs-dolittleを基に開発しています。
 
 ・開発環境  
 >\>node -v  
->v8.9.4  
->(noble-uwpのためversionを下げている)  
+>v8.9.4 (noble-uwpのためversionを下げている)  
 >\>npn -v  
 >5.6.0  
 >\>nvm version  
