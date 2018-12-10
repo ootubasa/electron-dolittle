@@ -20,11 +20,6 @@ nodejs-dolittleを基に開発しています。
 >noble-uwp：https://github.com/jasongin/noble-uwp
 >node-serialport：https://github.com/node-serialport/node-serialport
 
-・開発環境
-\>node -v
-v8.9.4
-
-
 ・以前使用していたもの一覧
 
 >NW.js：https://nwjs.io/
