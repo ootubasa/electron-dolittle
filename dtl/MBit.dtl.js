@@ -21,7 +21,7 @@
   root.MBit.AD設定ピン1 = "アナログ";
   root.MBit.AD設定ピン2 = "アナログ";
 
-  let BBCMicrobit = require("bbc-microbit");
+  var BBCMicrobit = require("bbc-microbit");
 
   BBCMicrobit.discover(function(microbit) {
     root.MBit.ステータス = "準備中";
