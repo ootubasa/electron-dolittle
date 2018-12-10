@@ -24,6 +24,15 @@ nodejs-dolittleを基に開発しています。
 
 >NW.js：https://nwjs.io/
 
+・開発環境  
+>\>node -v  
+>v8.9.4  
+>(noble-uwpのためversionを下げている)  
+>\>npn -v  
+>5.6.0  
+>\>nvm version  
+>1.1.7
+
 ・参考文献  
 >micro:bit を Scratch 2 + Bluetooth で使う：https://qiita.com/memakura/items/11a0426f9060da1ded7e  
 >Aceエディタ で日本語入力時のちらつきを解消する：https://qiita.com/RAWSEQ/items/7f9fc0fd4b3d572856ed
