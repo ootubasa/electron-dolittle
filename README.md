@@ -6,9 +6,9 @@ nodejs-dolittleを基に開発しています。
 >プログラミング言語「ドリトル」：https://dolittle.eplang.jp
 
 >nodejs-dolittle：https://github.com/kanemunelab/nodejs-dolittle
->>JQuery：https://jquery.com
+>>JQuery：https://jquery.com  
 >>Bootstrap-honoka：http://honokak.osaka  
->>PolyK(polyk.js)：http://polyk.ivank.net
+>>PolyK(polyk.js)：http://polyk.ivank.net  
 >>Mersenne Twister(mt.js)：http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/mt.html  
 >>ace-editor(editor)：https://ace.c9.io
 
