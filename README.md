@@ -5,7 +5,7 @@ nodejs-dolittleを基に開発しています。
 ・利用しているもの一覧
 >プログラミング言語「ドリトル」：https://dolittle.eplang.jp
 
->nodejs-dolittle：https://github.com/kanemunelab/nodejs-dolittle
+>nodejs-dolittle：https://github.com/kanemunelab/nodejs-dolittle  <br>
 >>JQuery：https://jquery.com
 >>Bootstrap-honoka：http://honokak.osaka
 >>PolyK(polyk.js)：http://polyk.ivank.net
