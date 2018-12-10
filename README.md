@@ -25,6 +25,9 @@ nodejs-dolittleを基に開発しています。
 >NW.js：https://nwjs.io/
 
 ・開発環境  
+\>ver  
+>Microsoft Windows \[Version 10.0.17763.168\]  
+(Windows 10 October 2018 Update	\[バージョン1809\])  
 >\>node -v  
 >v8.9.4 (noble-uwpのためversionを下げている)  
 >\>npn -v  
