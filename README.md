@@ -1,5 +1,5 @@
 # electron-dolittle
-このリポジトリはプログラミング言語「ドリトル」をElectronで動くようにしたものです。
+electron-dolittleはプログラミング言語「ドリトル」をElectronで動くようにしたものです。<br>
 nodejs-dolittleを基に開発しています。
 
 ・利用しているもの一覧<br>
