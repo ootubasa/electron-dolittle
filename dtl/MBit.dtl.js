@@ -149,6 +149,12 @@
       root.MBit.LED文字 = function(t) {
         microbit.writeLedText(t);
       };
+      root.MBit.ピン出力 = function(pin, val) {
+        microbit.writePin(pin, val);
+      };
+      root.MBit.送る=function(val){
+        microbit.writeUart(val);
+      }
     });
   });
 }
