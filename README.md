@@ -46,7 +46,10 @@ nodejs-dolittle
  >\>nvm version<br>
 > 1.1.7<br>
 
->\>npm install  bbc-microbit bootstrap-honoka brace electron electron-packager  electron-rebuild jquery noble-uwp npx serialport
+・node_modules一覧
+
+>\>npm install electron bbc-microbit bootstrap-honoka brace jquery noble-uwp npx serialport<br>
+>\>npm install -D electron-packager  electron-rebuild
 
 ・参考文献<br>
 
