@@ -1,6 +1,7 @@
 # electron-dolittle
 
 electron-dolittle はプログラミング言語「ドリトル」を Electron で動くようにしたものです。<br>
+
 <a href="http://github.com/kanemunelab/nodejs-dolittle">
 nodejs-dolittle
 </a>を基に開発しています。
@@ -39,17 +40,18 @@ nodejs-dolittle
 > \>ver<br>
 > Microsoft Windows \[Version 10.0.17763.168\]<br>
 > (Windows 10 October 2018 Update \[バージョン 1809\])<br>
- >\>node -v<br>
+> \>node -v<br>
 > v8.9.4 (noble-uwp のため version を下げている)<br>
- >\>npm -v<br>
+> \>npm -v<br>
 > 5.6.0<br>
- >\>nvm version<br>
+> \>nvm version<br>
 > 1.1.7<br>
 
-・node_modules一覧
+・node_modules 一覧<br>
 
->\>npm install electron bbc-microbit bootstrap-honoka brace jquery noble-uwp npx serialport<br>
->\>npm install -D electron-packager  electron-rebuild
+> \>npm install -D electron-packager electron-rebuild<br>
+> \>npm install electron bootstrap-honoka brace jquery serialport<br>
+> \>npm install bbc-microbit noble-uwp<br>
 
 ・参考文献<br>
 

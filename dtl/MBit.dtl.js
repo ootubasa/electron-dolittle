@@ -154,7 +154,7 @@
       };
       root.MBit.送る=function(val){
         microbit.writeUart(val);
-      }
+      };
     });
   });
 }
