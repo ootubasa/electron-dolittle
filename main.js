@@ -1,7 +1,7 @@
 const { app, BrowserWindow } = require("electron");
 let win = null;
 
-app.commandLine.appendSwitch("enable-experimental-web-platform-features");
+// app.commandLine.appendSwitch("enable-experimental-web-platform-features");
 
 if (!app.requestSingleInstanceLock()) {
   app.quit();
