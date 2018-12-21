@@ -6,10 +6,10 @@ nodejs-dolittle
 
 ・OS<br>
 Windows10のみ<br>
-(それ以外ではテストを行っておりません。)
+(それ以外ではテストを行っておりません。)<br>
 
 ・micro:bitとのBLE通信について<br>
-electron-dolittleにより，micro:bitとBLE通信することができる。
+electron-dolittleにより，micro:bitとBLE通信することができる。<br>
 > ・条件<br>
 > noble-uwpが使えること<br>
 > > ・Windows10<br>
