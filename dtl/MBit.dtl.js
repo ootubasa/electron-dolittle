@@ -3,7 +3,8 @@
   root.MBit.ステータス = "検索中";
   root.MBit.加速度X = 0;
   root.MBit.加速度Y = 0;
-  root.MBit.加速度Z = 0;
+  root.MBit.加速度Z = -1;
+  root.MBit.振動計 = 1;
   root.MBit.Aボタン = 0;
   root.MBit.Bボタン = 0;
   root.MBit.温度 = 0;
@@ -34,6 +35,7 @@
       root.MBit.加速度X = x;
       root.MBit.加速度Y = y;
       root.MBit.加速度Z = z;
+      root.MBit.振動計 = x * x + y * y + z * z;
     });
     microbit.on("buttonAChange", function(val) {
       root.MBit.Aボタン = val;
@@ -60,14 +62,14 @@
 
     microbit.connectAndSetUp(function() {
       root.MBit.ステータス = "接続中";
-      microbit.writeAccelerometerPeriod(160, function() {
+      microbit.writeAccelerometerPeriod(80, function() {
         microbit.subscribeAccelerometer();
       });
       microbit.subscribeButtons();
-      microbit.writeTemperaturePeriod(160, function() {
+      microbit.writeTemperaturePeriod(80, function() {
         microbit.subscribeTemperature();
       });
-      microbit.writeMagnetometerPeriod(160, function() {
+      microbit.writeMagnetometerPeriod(80, function() {
         microbit.subscribeMagnetometer();
         microbit.subscribeMagnetometerBearing();
       });
@@ -152,7 +154,7 @@
       root.MBit.ピン出力 = function(pin, val) {
         microbit.writePin(pin, val);
       };
-      root.MBit.送る=function(val){
+      root.MBit.送る = function(val) {
         microbit.writeUart(val);
       };
     });
