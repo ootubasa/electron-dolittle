@@ -62,6 +62,8 @@
 
     microbit.connectAndSetUp(function() {
       root.MBit.ステータス = "接続中";
+      microbit.writeLedMatrixState(new Buffer("1F1F1F1F1F","hex"));
+
       microbit.writeAccelerometerPeriod(80, function() {
         microbit.subscribeAccelerometer();
       });
