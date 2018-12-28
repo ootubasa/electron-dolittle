@@ -35,7 +35,7 @@
       root.MBit.加速度X = x;
       root.MBit.加速度Y = y;
       root.MBit.加速度Z = z;
-      root.MBit.振動計 = x * x + y * y + z * z;
+      root.MBit.振動計 = Math.sqrt(x * x + y * y + z * z);
     });
     microbit.on("buttonAChange", function(val) {
       root.MBit.Aボタン = val;
@@ -62,7 +62,7 @@
 
     microbit.connectAndSetUp(function() {
       root.MBit.ステータス = "接続中";
-      microbit.writeLedMatrixState(new Buffer("1F1F1F1F1F","hex"));
+      microbit.writeLedMatrixState(new Buffer("1F1F1F1F1F", "hex"));
 
       microbit.writeAccelerometerPeriod(80, function() {
         microbit.subscribeAccelerometer();
