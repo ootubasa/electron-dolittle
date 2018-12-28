@@ -2,7 +2,7 @@
   root.ファイル = root.create();
   root.ファイル.名前 = "新規ファイル.dtl";
   root.ファイル.リセット = function() {
-    fs.writeFileSync(__dirname + "/workspace/" +  root.ファイル.名前, "");
+    fs.writeFileSync(__dirname + "/workspace/" + root.ファイル.名前, "");
   };
   root.ファイル.上書き = function(val) {
     fs.writeFileSync(__dirname + "/workspace/" + root.ファイル.名前, val);
