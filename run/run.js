@@ -1,1 +1,1 @@
-(function(){return this['かめた']=this['タートル']['作る']()['線の色']((this['青']));}).checkerror().apply(root,[]);
+(function(){this['システム']['使う']("コンパス");this['ラベル']['作る']("　　方角");this['フィールド']['作る']();return this['動いているとき']=dtlbind(this,function(){var self=this;var 自分=self;return this['かめた']['向き']((((90)-this['方位'])));});}).checkerror().apply(root,[]);
