@@ -21,10 +21,12 @@
   root.MBit.AD設定ピン0 = "アナログ";
   root.MBit.AD設定ピン1 = "アナログ";
   root.MBit.AD設定ピン2 = "アナログ";
+  root.基板名 = "";
 
   var BBCMicrobit = require("bbc-microbit");
 
   BBCMicrobit.discover(function(microbit) {
+    console.log(microbit);
     root.MBit.ステータス = "準備中";
     microbit.on("disconnect", function() {
       root.MBit.ステータス = "切断";
