@@ -22,7 +22,7 @@ electron-dolittle により，micro:bit と BLE 通信することができる�
 > ・準備<br>
 >
 > > ・micro:bit には，micro:bit-setup フォルダ内にある HEX ファイル(microbit-bluetooth.hex)を書き込む。<br>
-> > ・PC では，micro:bit に HEX ファイルを書き込み，電源を入れ，キャリブレーション（LED を加速度センサによりすべて光らせる）した後，Windows とペアリングをする。<br>
+> > ・PC では，bluetoothの接続をONにする。<br>
 > > ・ドリトルには，最初に「システム！"MBit"使う。」を書く。<br>
 
 ・利用しているもの一覧<br>
