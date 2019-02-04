@@ -9,7 +9,7 @@
     "build": "npx electron-packager ./ Dolittle --platform=win32 --arch=x64 --icon=favicon.ico --overwrite",
     "build-mac": "npx electron-packager ./ Dolittle --platform=darwin --arch=x64 --overwrite",
     "rebuild": "npx electron-rebuild",
-    "noble-rebuild": "npm rebuild --runtime=electron --target=4.0.3 --arch=x64 --rebuild --disturl=https://atom.io/download/electron --build_from_source=true"
+    "noble-rebuild": "npm rebuild --runtime=electron --target=4.0.4 --arch=x64 --rebuild --disturl=https://atom.io/download/electron --build_from_source=true"
   },
   "author": "",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "bbc-microbit": "^0.2.0",
     "bootstrap-honoka": "^4.1.3",
     "brace": "^0.11.1",
-    "electron": "^4.0.3",
+    "electron": "^4.0.4",
     "jquery": "^3.3.1",
     "noble-uwp": "^0.6.2",
     "serialport": "^7.1.4"
