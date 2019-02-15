@@ -37,7 +37,7 @@ C:\Program Files\nodejs
 
 ```sh
 > npm ls -depth=0
-electron-dolittle@0.0.4 ..\electron-dolittle
+electron-dolittle@0.0.4 C\electron-dolittle
 +-- bbc-microbit@0.2.0
 +-- bootstrap-honoka@4.1.3
 +-- brace@0.11.1
@@ -48,62 +48,14 @@ electron-dolittle@0.0.4 ..\electron-dolittle
 `-- serialport@7.1.4
 ```
 
-> プログラミング言語「ドリトル」 :
-> https://dolittle.eplang.jp<br>
+* [PolyK(polyk.js)](URL "http://polyk.ivank.net")
+* [Mersenne Twister(mt.js)](URL "http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/mt.html")
 
-> nodejs-dolittle :
-> https://github.com/kanemunelab/nodejs-dolittle<br>
->
-> > JQuery : https://jquery.com<br>
-> > Bootstrap-honoka : http://honokak.osaka<br>
-> > PolyK(polyk.js) : http://polyk.ivank.net<br>
-> > Mersenne Twister(mt.js) :<br>
- > > http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/mt.html<br>
-> > ace-editor(editor) : https://ace.c9.io<br>
-
-> Electron : https://electronjs.org<br>
-> Node.js : https://nodejs.org<br>
->
-> > nvm-windows : https://github.com/coreybutler/nvm-windows<br>
-> > windows-build-tools :
-> > https://github.com/felixrieseberg/windows-build-tools<br>
-
-> node-bbc-microbit :
-> https://github.com/sandeepmistry/node-bbc-microbit<br>
-> noble-uwp :
-> https://github.com/jasongin/noble-uwp<br>
-> node-serialport :
-> https://github.com/node-serialport/node-serialport<br>
-
-> micro:bit の firmware :
-> https://github.com/ARMmbed/DAPLink/releases<br>
-
-## OS
-
-Windows10 のみ<br>
-(それ以外ではテストを行っておりません。)<br>
-
-## micro:bit との BLE 通信について
-
-electron-dolittle により，micro:bit と BLE 通信することができる。<br>
-
-### 条件
-
-noble-uwp が使えること<br>
->
-> > ・Windows10<br>
-> > ・Bluetoth4.0<br>
-
-> ・準備<br>
->
-> > ・micro:bit には，micro:bit-setup フォルダ内にある HEX ファイル(microbit-bluetooth.hex)を書き込む。<br>
-> > ・PC では，bluetoothの接続をONにする。<br>
-> > ・ドリトルには，最初に「システム！"MBit"使う。」を書く。<br>
+* [micro:bit の firmware](URL "https://github.com/ARMmbed/DAPLink/releases")
 
 ## 以前使用していたもの一覧
 
-> NW.js :
-> https://nwjs.io/<br>
+* [NW.js](URL "https://nwjs.io")
 
 ## node_modules 一覧
 
@@ -116,36 +68,43 @@ npm install -D electron electron-packager electron-rebuild
 
 ## node_modules 書き換えメモ
 
-bbc-microbit
+* bbc-microbit
+  * bbc-microbit/lib/bbc-microbit.js:20
 
-bbc-microbit/lib/bbc-microbit.js:20
+    ```js
+    var localName = peripheral.advertisement.localName || "";
+    ```
 
-```js
-var localName = peripheral.advertisement.localName || "";
-```
+* noble-device
+  * noble-device/lib/util.js:4
 
-> noble-device<br>
->
-> > noble-device/lib/util.js:4<br>
-> > var noble = require('noble-uwp');
+    ```js
+    var noble = require('noble-uwp');
+    ```
 
-> usb<br>
->
-> > usb/libusb/libusb/strerror.c:108<br>
-> > "Успех ",<br>
->
-> > usb/libusb/libusb/strerror.c:114<br>
-> > "Ресурс занят ",
+* usb
+  * usb/libusb/libusb/strerror.c:108<
 
-> noble-uwp<br>
->
-> > noble-uwp/lib/bindings.js:203<br>
-> > try{this.emit('servicesDiscover', deviceUuid, ex);}catch(e){console.log(e);alert("micro:bitの接続をやり直して下さい。")}
+    ```js
+    "Успех ",
+    ```
 
-> brace<br>
->
-> > brace/mode/dolittle.js<br>
-> > (backupからコピー＆ペースト)
+  * usb/libusb/libusb/strerror.c:114
+
+    ```js
+    "Ресурс занят ",
+    ```
+
+* noble-uwp
+  * noble-uwp/lib/bindings.js:203
+
+    ```js
+    try{this.emit('servicesDiscover', deviceUuid, ex);}catch(e){console.log(e);alert("micro:bitの接続をやり直して下さい。")}
+    ```
+
+* brace
+  * brace/mode/dolittle.js
+  `(backupからコピー＆ペースト)`
 
 ## 参考文献
 
