@@ -6,6 +6,12 @@ electron-dolittle は
 
 [nodejs-dolittle](URL "http://github.com/kanemunelab/nodejs-dolittle")を基に開発しています。
 
+## インストール
+
+[ここ](URL "https://github.com/ootubasa/electron-dolittle/releases")にある最新版のzipファイルをダウンロードし，展開してください。
+
+その後，ファイルの中にあるdolittle.exeを起動するとドリトルを動かすことができます。
+
 ## 開発環境
 
 ```sh
