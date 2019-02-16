@@ -48,14 +48,14 @@ electron-dolittle@0.0.4 C\electron-dolittle
 `-- serialport@7.1.4
 ```
 
-* [PolyK(polyk.js)](URL "http://polyk.ivank.net")
-* [Mersenne Twister(mt.js)](URL "http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/mt.html")
+- [PolyK(polyk.js)](URL "http://polyk.ivank.net")
+- [Mersenne Twister(mt.js)](URL "http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/mt.html")
 
-* [micro:bit の firmware](URL "https://github.com/ARMmbed/DAPLink/releases")
+- [micro:bit の firmware](URL "https://github.com/ARMmbed/DAPLink/releases")
 
 ## 以前使用していたもの一覧
 
-* [NW.js](URL "https://nwjs.io")
+- [NW.js](URL "https://nwjs.io")
 
 ## node_modules 一覧
 
@@ -66,52 +66,85 @@ npm install bbc-microbit
 npm install -D electron electron-packager electron-rebuild
 ```
 
+## VSCode拡張機能一覧
+
+```sh
+> code --list-extensions
+christian-kohler.npm-intellisense
+christian-kohler.path-intellisense
+chrmarti.regex
+CoenraadS.bracket-pair-colorizer
+DavidAnson.vscode-markdownlint
+donjayamanne.githistory
+eamodio.gitlens
+eg2.vscode-npm-script
+esbenp.prettier-vscode
+GitHub.vscode-pull-request-github
+keroc.hex-fmt
+mechatroner.rainbow-csv
+MS-CEINTL.vscode-language-pack-ja
+ms-vscode.cpptools
+naumovs.color-highlight
+PKief.material-icon-theme
+ritwickdey.LiveServer
+Shan.code-settings-sync
+```
+
 ## node_modules 書き換えメモ
 
-* bbc-microbit
-  * bbc-microbit/lib/bbc-microbit.js:20
+- bbc-microbit
+
+  - bbc-microbit/lib/bbc-microbit.js:20
 
     ```js
     var localName = peripheral.advertisement.localName || "";
     ```
 
-* noble-device
-  * noble-device/lib/util.js:4
+- noble-device
+
+  - noble-device/lib/util.js:4
 
     ```js
-    var noble = require('noble-uwp');
+    var noble = require("noble-uwp");
     ```
 
-* usb
-  * usb/libusb/libusb/strerror.c:108<
+- usb
+
+  - usb/libusb/libusb/strerror.c:108<
 
     ```js
     "Успех ",
     ```
 
-  * usb/libusb/libusb/strerror.c:114
+  - usb/libusb/libusb/strerror.c:114
 
     ```js
     "Ресурс занят ",
     ```
 
-* noble-uwp
-  * noble-uwp/lib/bindings.js:203
+- noble-uwp
+
+  - noble-uwp/lib/bindings.js:203
 
     ```js
-    try{this.emit('servicesDiscover', deviceUuid, ex);}catch(e){console.log(e);alert("micro:bitの接続をやり直して下さい。")}
+    try {
+      this.emit("servicesDiscover", deviceUuid, ex);
+    } catch (e) {
+      console.log(e);
+      alert("micro:bitの接続をやり直して下さい。");
+    }
     ```
 
-* brace
-  * brace/mode/dolittle.js
-  `(backupからコピー＆ペースト)`
+- brace
+  - brace/mode/dolittle.js
+    `(backupからコピー＆ペースト)`
 
 ## 参考文献
 
-* [micro:bit を Scratch 2 + Bluetooth で使う](URL "https://qiita.com/memakura/items/11a0426f9060da1ded7e")
-* [Ace エディタ で日本語入力時のちらつきを解消する](URL "https://qiita.com/RAWSEQ/items/7f9fc0fd4b3d572856ed")
-* [最新版で学ぶ Electron 入門 – HTML5 で PC アプリを開発する利点と手順](URL "https://ics.media/entry/7298")
-* [nvm 環境で npm のアップデートができない時の対処法](URL "https://qiita.com/jshindo/items/cdbb67208c364b33e287")
+- [micro:bit を Scratch 2 + Bluetooth で使う](URL "https://qiita.com/memakura/items/11a0426f9060da1ded7e")
+- [Ace エディタ で日本語入力時のちらつきを解消する](URL "https://qiita.com/RAWSEQ/items/7f9fc0fd4b3d572856ed")
+- [最新版で学ぶ Electron 入門 – HTML5 で PC アプリを開発する利点と手順](URL "https://ics.media/entry/7298")
+- [nvm 環境で npm のアップデートができない時の対処法](URL "https://qiita.com/jshindo/items/cdbb67208c364b33e287")
 
 ## 謝辞
 
