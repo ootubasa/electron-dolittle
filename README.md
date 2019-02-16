@@ -8,7 +8,7 @@ electron-dolittle は
 
 ## インストール
 
-[ここ](URL "https://github.com/ootubasa/electron-dolittle/releases")にある最新版のzipファイルをダウンロードし，展開してください。
+[ここ]("https://github.com/ootubasa/electron-dolittle/releases")にある最新版のzipファイルをダウンロードし，展開してください。
 
 その後，ファイルの中にあるdolittle.exeを起動するとドリトルを動かすことができます。
 
