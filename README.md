@@ -18,7 +18,7 @@ electron-dolittle は
 
 ## 使用法
 
-[APIドキュメント](https://github.com/ootubasa/electron-dolittle/API.md)をご覧ください。
+[APIドキュメント](https://github.com/ootubasa/electron-dolittle/tree/master/API.md)をご覧ください。
 
 ## 開発環境
 
