@@ -14,7 +14,7 @@ electron-dolittle は
 
 ## サンプル
 
-[example](https://github.com/ootubasa/electron-dolittle/example)フォルダをご覧ください。
+[example](https://github.com/ootubasa/electron-dolittle/tree/master/example)フォルダをご覧ください。
 
 ## 使用法
 
