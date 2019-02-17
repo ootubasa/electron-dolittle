@@ -1,1 +1,1 @@
-(function(){this['システム']['使う']("MBitBLE");this['基板名']="";this['かめた']=this['タートル']['作る']()['拡大する']((5));this['振動計前']=(1);return this['動いているとき']=dtlbind(this,function(){var self=this;var 自分=self;this['かめた']['歩く'](((this['Aボタン']*(100))));this['かめた']['歩く'](((this['Bボタン']*-(100))));this['かめた']['拡大する'](((this['振動計']/this['振動計前'])));this['かめた']['向き']((this['方位']));return this['振動計前']=this['振動計'];});}).checkerror().apply(root,[]);
+(function(){return this['システム']['使う']("MBit_setup");}).checkerror().apply(root,[]);
