@@ -9,11 +9,10 @@
 ### dolittle micro:bit HEXをインストールする
 
 1. micro:bitをコンピュータとUSBケーブルで保存します。
-2. [doittle micro:bit HEXファイルをダウンロードします。](https://github.com/ootubasa/electron-dolittle/blob/master/microbit-setup/microbit-bluetooth-full.hex)
+2. [doittle micro:bit HEXファイルをダウンロードします。](https://github.com/ootubasa/electron-dolittle/microbit-setup/microbit-bluetooth-full.hex)
 3. HEXファイルをmicro:bitへドラッグします。
 
 ### 動作の確認
-
 
 ```sh
 システム！"MBitBLE"使う。
