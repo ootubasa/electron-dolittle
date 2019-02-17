@@ -12,6 +12,14 @@ electron-dolittle は
 
 その後，ファイルの中にあるdolittle.exeを起動するとドリトルを動かすことができます。
 
+## サンプル
+
+[example](https://github.com/ootubasa/electron-dolittle/example)フォルダをご覧ください。
+
+## 使用法
+
+[APIドキュメント](https://github.com/ootubasa/electron-dolittle/API.md)をご覧ください。
+
 ## 開発環境
 
 ```sh
