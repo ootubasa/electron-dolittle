@@ -4,13 +4,14 @@
 
 [ここ（オンライン版ドリトル）](https://dolittle.eplang.jp/manualjs)をご覧ください。
 
-## micro:bitと通信しよう
+## micro:bit と通信しよう
 
-### dolittle micro:bit HEXをインストールする
+### dolittle micro:bit HEX をインストールする
 
-1. micro:bitをコンピュータとUSBケーブルで保存します。
-2. <a href=https://github.com/ootubasa/electron-dolittle/blob/master/microbit-setup/microbit-bluetooth-full.hex download="">doittle micro:bit HEXファイルをダウンロードします。</a>
-3. HEXファイルをmicro:bitへドラッグします。
+1. micro:bit をコンピュータと USB ケーブルで保存します。
+2. [doittle micro:bit HEX ファイルをダウンロードします。](https://github.com/ootubasa/electron-dolittle/blob/master/microbit-setup/microbit-bluetooth-full.hex)
+このリンクの上で右クリック →「名前を付けてリンク先を保存」をするとダウンロードできます。
+3. HEX ファイルを micro:bit へドラッグします。
 
 ### 動作の確認
 
