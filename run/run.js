@@ -1,1 +1,1 @@
-(function(){return this['かめた']=this['タートル']['作る']()['線の色']((this['青']));}).checkerror().apply(root,[]);
+(function(){return this['ラベル']['作る']((((90)).乱数()));}).checkerror().apply(root,[]);
